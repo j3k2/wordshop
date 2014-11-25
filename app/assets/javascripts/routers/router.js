@@ -3,7 +3,8 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 		this.$rootEl = options.$rootEl;
 	},
 	routes: {
-		'':'index'
+		'':'index',
+		'texts/:id':'show'
 	},
 	
 	index: function(){
@@ -13,6 +14,14 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 			collection: texts
 		});
 		this._swapView(indexView);
+	},
+	
+	show: function(id){
+		var text = Wordshop.Collections.texts.getOrFetch(id);
+		var showView = new Wordshop.Views.TextShow({
+			model: text
+		});
+		this._swapView(showView);
 	},
 	
 	_swapView: function(view){

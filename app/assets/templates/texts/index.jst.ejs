@@ -1,6 +1,8 @@
 <h2>Featured texts:</h2>
 	
+	<ul>
 	<% texts.forEach(function(text){ %>
-		<a href="#/texts/<%= text.id %>"><%= text.escape('title') %></a>
+		<li><a href="#/texts/<%= text.id %>"><%= text.escape('title') %></a>
 		by <%= text.user().escape('username') %>
   <% })%>
+	<ul>
