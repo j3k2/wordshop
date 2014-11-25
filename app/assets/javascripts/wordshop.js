@@ -4,7 +4,11 @@ window.Wordshop = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+		
+		new Wordshop.Routers.Router({
+			$rootEl: $('#content')
+		});
+		Backbone.history.start();
   }
 };
 
