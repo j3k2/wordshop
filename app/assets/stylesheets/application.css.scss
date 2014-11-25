@@ -66,8 +66,6 @@
 	opacity: 0.8;
 	padding: 20px;
 	padding-right:40px;
-	color: black;
-	font-family:'Courier New';
 }
 
 
@@ -83,7 +81,6 @@
 .bleh{
 	float:right;
 	margin-top:5px;
-	font-family:'Courier New';
 }
 
 .txti{
@@ -139,4 +136,7 @@ background: pink;
 
 body{
 	font-family: 'Courier New', monospace;
+}
+form.button_to{
+	display: inline-block;
 }
