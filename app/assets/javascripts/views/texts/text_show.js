@@ -14,9 +14,19 @@ Wordshop.Views.TextShow = Backbone.View.extend({
 		var sel = window.getSelection();
 		var selString = sel.toString();
 		var selRange = sel.getRangeAt(0);
-		var startIdx = selRange.startOffset;
-		var endIdx = selRange.endOffset - 1;
-
+		var startIdx = 0;
+		var endIdx = 0;
+		
+		var previousCrit = selRange.startContainer.previousSibling;
+		if(previousCrit){
+			var previousCritEndIdx = 
+				parseInt(previousCrit.attributes['end-index'].value);
+			startIdx = previousCritEndIdx + selRange.startOffset + 1;
+			endIdx = previousCritEndIdx + selRange.endOffset;
+		} else {
+			startIdx = selRange.startOffset;
+			endIdx = selRange.endOffset - 1;
+		}
 		alert(selString + ":" + startIdx + ":" + endIdx);
 	},
 	
