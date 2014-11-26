@@ -17,31 +17,24 @@
 @import "bootstrap";
 @import "bootstrap-sprockets";
 
-
-
 .navbar{
 	height: 80px;
 	padding: 8px;
-	
-}
-.navbar-default{
 	background: cyan;
-
 }
-
 
 .navbar-default .navbar-brand{
 	font-family: Special Elite, serif;
 	font-size: 36px;
 	font-weight:bold;
 	color: black;
-	padding-top:25px;
-	
+	padding-top:25px;	
 }
 
-
-.navbar-default .bleh{
+.btngrp{
 	padding:10px;
+	padding-top: 15px;
+	float: right;
 	
 }
 
@@ -52,48 +45,9 @@
 
 .btn-default:hover{
 	background:white;
-	border:none;
-}
-
-.blah{
-	background:white;
-	opacity: 0.8;
-	padding: 80px;
-}
-
-.text-display{
-	background:white;
-	opacity: 0.8;
-	padding: 20px;
-	padding-right:40px;
 }
 
 
-
-.text-display a{
-	color: grey;
-	font-weight: bold;	
-}
-.text-display a:hover{
-	color: cyan;
-}
-
-.bleh{
-	float:right;
-	margin-top:5px;
-}
-
-.txti{
-	
-		margin-left: auto;
-			resize: none;
-			width: 100%;
-			
-			color:black;
-		background:lightgrey;
-			font-size: 16px;
-		
-}
 
 .txta{
 	margin-left: auto;
@@ -105,53 +59,12 @@
 	font-size: 16px;
 }
 
-.hilite{
-	background:cyan;
-	margin-top: 0px;
-	
-}
-
-a.hilite{
-	color: black;
-	font-weight: normal;
-}
-
-a.hilite:hover{
-	background: grey;
-	color:white;
-	text-decoration:none;
+form.button_to{
+	display: inline-block;
 }
 
 .crit{
 	border: 1px solid black;
-}
-
-.navbar a{
-	text-decoration:none;
-	color: black;
-}
-
-.navbar > form{
-background: pink;
-}
-
-body{
-	font-family: 'Courier New', monospace;
-}
-
-form.button_to{
-	display: inline-block;
-}
-ul.index{
-width: 400px;
-}
-a.index{
-color:black;
-}
-
-a.index:hover{
-	color: grey;
-	background:cyan;
 }
 
 .crit-show{
@@ -165,4 +78,36 @@ a.index:hover{
 	background: grey;
 	display:block;
 	color: white;
+	text-align: center;
+}
+
+.hilite{
+	background:cyan;
+	margin-top: 0px;
+	
+}
+
+a.hilite:hover{
+	background: grey;
+	color:white;
+	text-decoration:none;
+}
+
+a{
+	text-decoration:none;
+	color: black;
+}
+
+a:hover{
+	color: cyan;
+}
+
+a.index:hover{
+	color: grey;
+	background:cyan;
+	font-style: italic;
+}
+
+body{
+	font-family: 'Courier New', monospace;
 }
