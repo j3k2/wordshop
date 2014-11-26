@@ -1,0 +1,13 @@
+<h4 class="hilite"><%= selString %></h4>
+
+<form id="crit-submit">
+	
+	<textarea class="txta" name="content"></textarea>
+	<input type="hidden" name="text_id" value="<%= text.id %>">
+	<input type="hidden" name="user_id" value="<%= window.currentUser.id %>">
+	<input type="hidden" name="start_idx" value="<%= startIdx %>">
+	<input type="hidden" name="end_idx" value="<%= endIdx %>">
+	
+	
+	<input type="submit" value="Submit">
+</form>	
