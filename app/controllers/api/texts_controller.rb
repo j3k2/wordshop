@@ -6,6 +6,6 @@ class Api::TextsController < ApplicationController
   
   def show
     @text = Text.find(params[:id])
-    render json: @text
+    render :show
   end
 end
