@@ -2,12 +2,19 @@ Wordshop.Models.Text = Backbone.Model.extend({
 	urlRoot: '/api/texts',
 	
 	annotatedContent: function(){
-		var textContent = this.model.attributes.content;
-		this.critiques().models.each(function(crit){
-			var end_idx = crit.attributes.end_idx;
-			var start_idx = crit.attributes.start_idx;
+		var textContent = this.attributes.content;
+		this.critiques().models.forEach(function(crit){
+			var endIdx = crit.attributes.end_idx;
+			var startIdx = crit.attributes.start_idx;
+			var closeTag = "</a>";
+			var openTag = "<a class='hilite' href='" + crit.id + "'>";
+			var a = textContent.slice(0, startIdx);
+			var b = textContent.slice(startIdx, endIdx);
+			var c = textContent.slice(endIdx, textContent.length);
+			textContent = a + openTag + b + closeTag + c;
 		});
-
+		
+		return textContent;
 	},
 	critiques: function(){
 		this._critiques = this._critiques ||

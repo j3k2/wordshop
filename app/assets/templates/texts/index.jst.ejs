@@ -2,7 +2,7 @@
 	
 	<ul class="list-group index">
 	<% texts.forEach(function(text){ %>
-		<a href="#/texts/<%= text.id %>" class="list-group-item index"><%= text.escape('title') %> by <%= text.user().escape('username') %>
+		<a href="#texts/<%= text.id %>" class="list-group-item index"><%= text.escape('title') %> by <%= text.user().escape('username') %>
   <% })%></a>
 
 	<ul>
