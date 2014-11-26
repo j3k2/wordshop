@@ -3,6 +3,8 @@
 			critique.get('end_idx') + 1
 ) %></h4>
 
+
 <%= critique.escape('content') %>
+
 <br>
-<em>- <%= critique.user().escape('username') %></em>
+<em class="byline"> - <%= critique.user().escape('username') %></em>

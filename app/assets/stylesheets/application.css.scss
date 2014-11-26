@@ -107,6 +107,7 @@
 
 .hilite{
 	background:cyan;
+	margin-top: 0px;
 	
 }
 
@@ -151,4 +152,17 @@ color:black;
 a.index:hover{
 	color: grey;
 	background:cyan;
+}
+
+.crit-show{
+	border: 1px dashed grey;
+	width: 100%;
+	word-wrap: break-word;
+	padding: 5px;
+}
+
+.byline{
+	background: grey;
+	display:block;
+	color: white;
 }

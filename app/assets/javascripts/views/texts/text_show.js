@@ -5,7 +5,6 @@ Wordshop.Views.TextShow = Backbone.View.extend({
 	initialize: function(){
 		this.listenTo(this.model, 'sync', this.render);
 		this.listenTo(this.model, "critiqueCreated", this.render);
-		window.view = this;
 	},
 
 	addCritique: function(critique){
