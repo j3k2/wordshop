@@ -29,10 +29,9 @@ Wordshop.Views.CritiqueNew = Backbone.View.extend({
 		var that = this;
 		Wordshop.Collections.crits.create(this.model, {
 			success: function(){
-				// debugger
-				var url = "texts/" + that.text.id;
-				Backbone.history.navigate(url, {trigger: true});
-				// Backbone.history.navigate("", {trigger: true});
+				that.text.critiques().add(that.model);
+				that.text.trigger('critiqueCreated');
+				that.remove();
 			}
 		});
 		
