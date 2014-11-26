@@ -15,7 +15,7 @@ Wordshop.Views.TextShow = Backbone.View.extend({
 		var selString = sel.toString();
 		var selRange = sel.getRangeAt(0);
 		var startIdx = selRange.startOffset;
-		var endIdx = selRange.endOffset;
+		var endIdx = selRange.endOffset - 1;
 
 		alert(selString + ":" + startIdx + ":" + endIdx);
 	},
