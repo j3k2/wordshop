@@ -3,20 +3,20 @@ Wordshop.Collections.Texts = Backbone.Collection.extend({
   model: Wordshop.Models.Text,
 	
 	getOrFetch: function(id){
-		var post = this.get(id);
-		var posts = this;
+		var text = this.get(id);
+		var texts = this;
 		
-		if(post){
-			post.fetch();
+		if(text){
+			text.fetch();
 		} else {
-			post = new Wordshop.Models.Text({id: id});
-			post.fetch({
+			text = new Wordshop.Models.Text({id: id});
+			text.fetch({
 				success: function(){
-					posts.add(post);
+					texts.add(text);
 				}
 			});
 		}
-		return post;
+		return text;
 	}
 });
 

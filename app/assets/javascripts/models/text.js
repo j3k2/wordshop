@@ -3,11 +3,12 @@ Wordshop.Models.Text = Backbone.Model.extend({
 	
 	annotatedContent: function(){
 		var textContent = this.attributes.content;
+		var text = this;
 		this.critiques().models.forEach(function(crit){
 			var endIdx = crit.attributes.end_idx;
 			var startIdx = crit.attributes.start_idx;
 			var closeTag = "</a>";
-			var openTag = "<a class='hilite' href='" + crit.id + "'>";
+			var openTag = "<a class='hilite' href='#texts/" + text.id + "/" + crit.id + "'>";
 			var a = textContent.slice(0, startIdx);
 			var b = textContent.slice(startIdx, endIdx);
 			var c = textContent.slice(endIdx, textContent.length);
