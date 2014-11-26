@@ -1,6 +1,7 @@
 Wordshop.Views.CritiqueShow = Backbone.View.extend({
 	
   template: JST['critiques/show'],
+	
 	initialize: function(options){
 		this.listenTo(this.model, 'sync', this.render);
 		this.text = options.text;

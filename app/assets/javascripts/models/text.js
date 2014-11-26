@@ -9,8 +9,8 @@ Wordshop.Models.Text = Backbone.Model.extend({
 			var startIdx = crit.attributes.start_idx;
 			var closeTag = "</a>";
 			var openTag = "<a class='hilite' href='#texts/" + text.id + "/" + crit.id + "'>";
-			var a = textContent.slice(0, startIdx);
-			var b = textContent.slice(startIdx, endIdx);
+			var a = textContent.slice(0, startIdx - 1);
+			var b = textContent.slice(startIdx, endIdx - 1);
 			var c = textContent.slice(endIdx, textContent.length);
 			textContent = a + openTag + b + closeTag + c;
 		});

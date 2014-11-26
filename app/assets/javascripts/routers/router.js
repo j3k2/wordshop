@@ -1,7 +1,4 @@
 Wordshop.Routers.Router = Backbone.Router.extend({
-	initialize: function(options){
-		this.$rootEl = options.$rootEl;
-	},
 	routes: {
 		'':'index',
 		'texts/:id/:crit_id':'critiqueShow',
@@ -24,6 +21,7 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 		});
 		this._swapView(showView);
 	},
+	
 	critiqueShow: function(id, crit_id){
 		var text = Wordshop.Collections.texts.getOrFetch(id);
 		var showView = new Wordshop.Views.TextShow({
@@ -38,12 +36,13 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 		});
 		this._swapSidebarView(critShowView);
 	},
+	
 	_swapView: function(view){
 		if(this.currentView){
 			this.currentView.remove();
 		}
 		this.currentView = view;
-		this.$rootEl.html(view.render().$el);
+		$('#content').html(view.render().$el);
 	},
 	
 	_swapSidebarView: function(view){

@@ -5,9 +5,7 @@ window.Wordshop = {
   Routers: {},
   initialize: function() {
 		
-		new Wordshop.Routers.Router({
-			$rootEl: $('#content')
-		});
+		new Wordshop.Routers.Router();
 		Backbone.history.start();
   }
 };
