@@ -1,0 +1,1 @@
+json.(@user, :username, :texts, :critiques, :critiqued_texts)

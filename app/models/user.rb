@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   before_validation :ensure_session_token
   
   has_many :texts
+  has_many :critiques
+  has_many :critiqued_texts, through: :critiques, source: :text
+  
   
   attr_reader :password
   

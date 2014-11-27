@@ -1,4 +1,6 @@
 Wordshop.Collections.Critiques = Backbone.Collection.extend({
+	url: '/api/critiques',
+	
 	comparator: function(crit){
 		return -crit.get('end_idx');
 	},

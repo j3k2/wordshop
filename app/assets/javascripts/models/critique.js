@@ -12,6 +12,7 @@ Wordshop.Models.Critique = Backbone.Model.extend({
 			this.user().set(response.user, {parse: true});
 			delete response.user;
 		}
+		
 		return response;
 	}
 });
