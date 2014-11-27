@@ -11,7 +11,7 @@ Wordshop.Views.TextShow = Backbone.View.extend({
 	},
 	
 	events: {
-		'mouseup pre#textContent':'getSelectedText'
+		'mouseup pre#text-content':'getSelectedText'
 	},
 	
 	getSelectedText: function(){

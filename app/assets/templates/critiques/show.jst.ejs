@@ -3,8 +3,9 @@
 			critique.get('end_idx') + 1
 ) %></h4>
 
-
+<div id='crit-content'>
 <%= critique.escape('content') %>
+</div>
 
 <br>
 <em class="byline"> - <a href="#users/<%= critique.user().id %>">

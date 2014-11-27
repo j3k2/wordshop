@@ -1,5 +1,7 @@
 <h2><%= text.escape('title') %></h2>
-by <%= text.user().escape('username') %>
+by 
+<a href="#/users/<%= text.user().id %>">
+	<%= text.user().escape('username') %>
+</a>
 
-
-<pre id="textContent"><%= text.annotatedContent() %></pre>
+<pre id="text-content"><%= text.annotatedContent() %></pre>

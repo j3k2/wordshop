@@ -66,6 +66,8 @@ form.button_to{
 
 .crit-show{
 	border: 1px dashed grey;
+  border-radius: 5px;
+	
 	width: 100%;
 	word-wrap: break-word;
 	padding: 5px;
@@ -99,7 +101,10 @@ a.hilite:hover{
 }
 
 a{
-	text-decoration:none;
+	color:black;
+}
+
+pre a{
 	color: black;
 }
 
@@ -115,4 +120,19 @@ a.index:hover{
 
 body{
 	font-family: 'Courier New', monospace;
+}
+
+div#crit-content{
+background:none;
+border:none;
+padding:0px;
+white-space:pre-line;
+}
+
+pre#text-content{
+margin-top: 10px;
+background:none;
+border: 1px dashed grey;
+padding: 5px;
+text-align: left;
 }
