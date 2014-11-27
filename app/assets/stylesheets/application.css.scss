@@ -35,7 +35,6 @@
 	padding:10px;
 	padding-top: 15px;
 	float: right;
-	
 }
 
 .btn-default{
@@ -46,8 +45,6 @@
 .btn-default:hover{
 	background:white;
 }
-
-
 
 .txta{
 	margin-left: auto;
@@ -79,6 +76,7 @@ form.button_to{
 	display:block;
 	color: white;
 	text-align: center;
+	margin-top: 10px;
 }
 
 .hilite{
@@ -87,6 +85,13 @@ form.button_to{
 	
 }
 
+.navbar a{
+	text-decoration: none;
+}
+
+.navbar a:hover{
+	color: black;
+}
 a.hilite:hover{
 	background: grey;
 	color:white;

@@ -7,4 +7,5 @@
 <%= critique.escape('content') %>
 
 <br>
-<em class="byline"> - <%= critique.user().escape('username') %> - </em>
+<em class="byline"> - <a href="#users/<%= critique.user().id %>">
+	<%= critique.user().escape('username') %></a> - </em>

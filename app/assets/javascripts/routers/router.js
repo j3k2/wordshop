@@ -1,25 +1,26 @@
 Wordshop.Routers.Router = Backbone.Router.extend({
 	routes: {
-		'':'index',
+		'':'textIndex',
+		'users/:id': 'userShow',
 		'texts/:id/:crit_id':'critiqueShow',
-		'texts/:id':'show'
+		'texts/:id':'textShow'
 	},
 	
-	index: function(){
+	textIndex: function(){
 		var texts = Wordshop.Collections.texts;
 		texts.fetch();
-		var indexView = new Wordshop.Views.TextsIndex({
+		var textIndexView = new Wordshop.Views.TextsIndex({
 			collection: texts
 		});
-		this._swapView(indexView);
+		this._swapView(textIndexView);
 	},
 	
-	show: function(id){
+	textShow: function(id){
 		var text = Wordshop.Collections.texts.getOrFetch(id);
-		var showView = new Wordshop.Views.TextShow({
+		var textShowView = new Wordshop.Views.TextShow({
 			model: text
 		});
-		this._swapView(showView);
+		this._swapView(textShowView);
 	},
 	
 	critiqueShow: function(id, crit_id){
@@ -35,6 +36,15 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 			text: text
 		});
 		this._swapSidebarView(critShowView);
+	},
+
+	userShow: function(id){
+		var user = Wordshop.Collections.users.getOrFetch(id);
+		var userShowView = new Wordshop.Views.UserShow({
+			model: user
+		});
+		
+		this._swapView(userShowView);
 	},
 	
 	_swapView: function(view){
