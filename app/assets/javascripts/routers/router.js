@@ -13,6 +13,8 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 			collection: texts
 		});
 		this._swapView(textIndexView);
+		this._clearSidebarView();
+		
 	},
 	
 	textShow: function(id){
@@ -21,6 +23,8 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 			model: text
 		});
 		this._swapView(textShowView);
+		this._clearSidebarView();
+		
 	},
 	
 	critiqueShow: function(id, crit_id){
@@ -45,6 +49,7 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 		});
 		
 		this._swapView(userShowView);
+		this._clearSidebarView();
 	},
 	
 	_swapView: function(view){
@@ -61,5 +66,11 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 		}
 		this.currentSidebarView = view;
 		$('#sidebar').html(view.render().$el);
+	},
+	
+	_clearSidebarView: function(){
+		if(this.currentSidebarView){
+			this.currentSidebarView.remove();
+		}
 	}
 });

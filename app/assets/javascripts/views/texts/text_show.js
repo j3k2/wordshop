@@ -6,9 +6,6 @@ Wordshop.Views.TextShow = Backbone.View.extend({
 		this.listenTo(this.model, 'sync', this.render);
 		this.listenTo(this.model, "critiqueCreated", this.render);
 	},
-
-	addCritique: function(critique){
-	},
 	
 	events: {
 		'mouseup pre#text-content':'getSelectedText'
