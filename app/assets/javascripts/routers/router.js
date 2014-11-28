@@ -2,6 +2,7 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 	routes: {
 		'':'textIndex',
 		'users/:id': 'userShow',
+		'texts/new':'textNew',
 		'texts/:id/:crit_id':'critiqueShow',
 		'texts/:id':'textShow'
 	},
@@ -25,6 +26,12 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 		this._swapView(textShowView);
 		this._clearSidebarView();
 		
+	},
+	
+	textNew: function(){
+		var textNewView = new Wordshop.Views.TextNew();
+		this._swapView(textNewView);
+		this._clearSidebarView();
 	},
 	
 	critiqueShow: function(id, crit_id){
