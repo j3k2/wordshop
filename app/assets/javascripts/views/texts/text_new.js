@@ -19,6 +19,7 @@ Wordshop.Views.TextNew = Backbone.View.extend({
 		
 		newText.set(params);
 		
+		
 		newText.save({}, {
 			success: function(){
 				Wordshop.Collections.texts.add(newText);

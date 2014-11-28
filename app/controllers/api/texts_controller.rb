@@ -11,6 +11,9 @@ class Api::TextsController < ApplicationController
   
   def create
     @text = Text.new(text_params)
+    
+    text_params[:content].gsub!(/\r/, '')
+    
     if @text.save
       render json: @text
     else
