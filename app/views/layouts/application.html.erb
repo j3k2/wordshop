@@ -7,39 +7,24 @@
   <%= csrf_meta_tags %>
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Special+Elite&text=wordshop">
 </head>
+<!-- <body style="background-image: url('http://i.imgur.com/dLi7qEL.jpg');"> -->
 <body>
 	
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   	<div class="container">
 			<a href="/" class="navbar-brand">wordshop</a>
 			<div class="btngrp" role="group">  			  
-			
-			  <button type="button" class="btn btn-default">
-					<a href="/#">Browse</a>
-				</button>
-				
-			  <button type="button" class="btn btn-default">
-					<a href="/#texts/new">Add text</a>
-				</button>
-				
+				<a href="/#" class="btn btn-default">Browse</a>
+				<a href="/#texts/new" class="btn btn-default">Add text</a>
 				<% if current_user %>
-				
-					  <button type="button" class="btn btn-default">
-							<a href="/#users/<%= current_user.id %>">
-								<%= current_user.username %>
-							</a>	
-						</button>
-						
-						<%= button_to "Sign Out", session_url, method: :delete, class: 'btn btn-default' %>
-
+					<a class="btn btn-default" href="/#users/<%= current_user.id %>">
+						<%= current_user.username %>
+					</a>				
+					<%= button_to "Sign Out", session_url, method: :delete, class: 'btn btn-default' %>
 				<% else %>
-				
-			 	<button type="button" class="btn btn-default">
-					<a href="<%= new_session_url %>">
+					<a class="btn btn-default" href="<%= new_session_url %>">
 						Sign In
-					</a>
-				</button>	
-								
+					</a>								
 				<% end %>
 			</div>
     </div>
