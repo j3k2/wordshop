@@ -119,7 +119,6 @@ a:hover{
 a.index:hover{
 	color: grey;
 	background:cyan;
-	font-style: italic;
 }
 
 body{
@@ -144,4 +143,12 @@ text-align: left;
 #sidebar{
 position:absolute;
 right:0px;
+}
+
+.list-group{
+width:max-content;
+}
+.badge{
+margin-left:25px;
+margin-right:5px;
 }

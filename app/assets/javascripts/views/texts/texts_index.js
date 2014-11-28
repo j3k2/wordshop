@@ -8,6 +8,6 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 		var content = this.template({texts: this.collection});
 		this.$el.html(content);
 		return this;
-	}
+	},
 
 });
