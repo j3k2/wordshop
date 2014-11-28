@@ -14,7 +14,7 @@ Wordshop.Views.TextShow = Backbone.View.extend({
 	getSelectedText: function(){
 		var sel = window.getSelection();
 		var selString = sel.toString();
-		if(selString){
+		if(selString && this.model.id != window.currentUser.id){
 			var selRange = sel.getRangeAt(0);
 			var startIdx = 0;
 			var endIdx = 0;
