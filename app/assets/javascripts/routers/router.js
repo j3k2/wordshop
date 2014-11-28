@@ -46,7 +46,7 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 			model: crit,
 			text: text
 		});
-		this._swapSidebarView(critShowView);
+		this._swapSidebarView(critShowView);		
 	},
 
 	userShow: function(id){

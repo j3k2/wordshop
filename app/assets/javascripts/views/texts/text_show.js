@@ -8,14 +8,18 @@ Wordshop.Views.TextShow = Backbone.View.extend({
 	},
 	
 	events: {
-		'mouseup pre#text-content':'getSelectedText'
+		'mouseup pre#text-content':'getSelectedText',
+		'click pre#text-content > a':'setSidebarPosition'
 	},
 	
+	setSidebarPosition: function(event){
+		$('#sidebar').css("top", event.offsetY + 190);
+	},
 	getSelectedText: function(event){
-		debugger
 		var sel = window.getSelection();
 		var selString = sel.toString();
 		if(selString){
+			this.setSidebarPosition(event);
 			var selRange = sel.getRangeAt(0);
 			var startIdx = 0;
 			var endIdx = 0;
