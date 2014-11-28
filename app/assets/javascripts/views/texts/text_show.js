@@ -21,19 +21,31 @@ Wordshop.Views.TextShow = Backbone.View.extend({
 			var selRange = sel.getRangeAt(0);
 			var startIdx = 0;
 			var endIdx = 0;
-		
-			var previousCrit = selRange.startContainer.previousSibling;
-			if(previousCrit){
-				var previousCritEndIdx = 
-					parseInt(previousCrit.attributes['end-index'].value);
-				startIdx = previousCritEndIdx + selRange.startOffset + 1;
-				endIdx = previousCritEndIdx + selRange.endOffset;
-			} else {
-				startIdx = selRange.startOffset;
-				endIdx = selRange.endOffset - 1;
-			}
-	
-			this.renderCritiqueNew(selString, startIdx, endIdx);
+
+				if(
+				selRange.startContainer.parentElement.tagName === "A" ||
+				selRange.endContainer.parentElement.tagName === "A" ||
+					(selRange.startContainer !== selRange.endContainer &&
+					selRange.startContainer.nextSibling &&
+					selRange.startContainer.nextSibling.tagName === "A" &&
+					selRange.endContainer.previousSibling &&
+					selRange.endContainer.previousSibling.tagName === "A"
+					)
+ 				){
+					alert("Sorry, overlapping annotations are not allowed.");
+				} else {
+					var previousCrit = selRange.startContainer.previousSibling;
+					if(previousCrit){
+						var previousCritEndIdx = 
+							parseInt(previousCrit.attributes['end-index'].value);
+						startIdx = previousCritEndIdx + selRange.startOffset + 1;
+						endIdx = previousCritEndIdx + selRange.endOffset;
+					} else {
+						startIdx = selRange.startOffset;
+						endIdx = selRange.endOffset - 1;
+					}
+				this.renderCritiqueNew(selString, startIdx, endIdx);
+			}  	
 		}
 	},
 	
