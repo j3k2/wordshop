@@ -2,7 +2,6 @@ Wordshop.Collections.Texts = Backbone.Collection.extend({
 	url: '/api/texts',
   model: Wordshop.Models.Text,
 	
-	
 	getOrFetch: function(id){
 		var text = this.get(id);
 		var texts = this;
