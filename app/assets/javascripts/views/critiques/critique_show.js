@@ -8,6 +8,10 @@ Wordshop.Views.CritiqueShow = Backbone.View.extend({
 		this.text = options.text;
 	},
 	
+	events: {
+		'click button#crit-delete':'deleteCrit'
+	},
+	
 	render: function(){
 		var content = this.template({
 			critique: this.model,
@@ -15,5 +19,17 @@ Wordshop.Views.CritiqueShow = Backbone.View.extend({
 		});
 		this.$el.html(content);
 		return this;
+	},
+	
+	deleteCrit: function(){
+		var that = this;
+		this.model.destroy({
+			success: function(){
+				var url = "texts/" + that.text.id;
+				Backbone.history.navigate(url, {trigger: true});
+			}
+		});
 	}
+	
+	
 });

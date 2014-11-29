@@ -1,7 +1,8 @@
 <h2><%= text.escape('title') %></h2>
 by 
 <a href="#/users/<%= text.user().id %>">
-	<%= text.user().escape('username') %>
-</a>
-
+	<%= text.user().escape('username') %></a>
+<% if(window.currentUser.id == text.user().id){ %>
+	<button id="text-delete">Delete</button>
+<% } %>	
 <pre id="text-content"><%= text.annotatedContent() %></pre>

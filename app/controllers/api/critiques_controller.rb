@@ -14,6 +14,15 @@ class Api::CritiquesController < ApplicationController
     end
   end
   
+  def destroy
+    @crit = Critique.find(params[:id])
+    
+    if @crit.destroy
+      render json: @crit
+    else
+      render json: @crit.errors.full_messages
+    end
+  end
   
   private
   def crit_params

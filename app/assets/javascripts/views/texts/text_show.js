@@ -9,7 +9,8 @@ Wordshop.Views.TextShow = Backbone.View.extend({
 	
 	events: {
 		'mouseup pre#text-content':'getSelectedText',
-		'click pre#text-content > a':'setSidebarPosition'
+		'click pre#text-content > a':'setSidebarPosition',
+		'click button#text-delete': 'deleteText'
 	},
 	
 	setSidebarPosition: function(event){
@@ -67,5 +68,13 @@ Wordshop.Views.TextShow = Backbone.View.extend({
 			text: this.model
 		});
 		$('#sidebar').html(newView.render().$el);
+	},
+	
+	deleteText: function(){
+		this.model.destroy({
+			success: function(){
+				Backbone.history.navigate("", {trigger: true});
+			}
+		});
 	}
 });
