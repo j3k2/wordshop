@@ -6,7 +6,6 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 	initialize: function(options){
 		this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.replies(), "add", this.addReply);
-		this.text = options.text;
 		
 		var responseNewView = new Wordshop.Views.ReplyNew({
 			model: this.model
@@ -24,10 +23,8 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 	},
 	
 	render: function(){
-		debugger
 		var content = this.template({
-			critique: this.model,
-			text: this.text
+			critique: this.model
 		});
 		this.$el.html(content);
 		this.attachSubviews();
@@ -45,7 +42,7 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 		var that = this;
 		this.model.destroy({
 			success: function(){
-				var url = "texts/" + that.text.id;
+				var url = "texts/" + that.model.text().id;
 				Backbone.history.navigate(url, {trigger: true});
 			}
 		});
