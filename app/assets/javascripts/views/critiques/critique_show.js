@@ -7,6 +7,8 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.replies(), "add", this.addReply);
 		
+		this.text = options.text;
+		
 		var that = this;
 		this.model.replies().forEach(function(reply){
 			that.addReply(reply);
@@ -36,7 +38,8 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 	
 	addNewForm: function(){
 		var responseNewView = new Wordshop.Views.ReplyNew({
-			model: this.model
+			crit: this.model,
+			text: this.text
 		});
 		this.addSubview(".reply-new", responseNewView);
 		$('button#reply-button').remove();

@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :texts
     resources :critiques
     resources :users
+    resources :replies, only: [:create, :destroy]
   end
 end

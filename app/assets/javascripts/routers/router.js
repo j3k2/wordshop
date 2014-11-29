@@ -35,11 +35,16 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 	},
 	
 	critiqueShow: function(id, crit_id){
-		this.textShow(id);
+		var text = Wordshop.Collections.texts.getOrFetch(id);
+		var textShowView = new Wordshop.Views.TextShow({
+			model: text
+		});
+		this._swapView(textShowView);
 
 		var crit = Wordshop.Collections.crits.getOrFetch(crit_id);
 		var critShowView = new Wordshop.Views.CritiqueShow({
-			model: crit
+			model: crit,
+			text: text
 		});
 		this._swapSidebarView(critShowView);		
 	},
