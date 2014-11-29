@@ -4,9 +4,10 @@ class User < ActiveRecord::Base
   
   before_validation :ensure_session_token
   
-  has_many :texts
-  has_many :critiques
+  has_many :texts, dependent: :destroy
+  has_many :critiques, dependent: :destroy
   has_many :critiqued_texts, through: :critiques, source: :text
+  has_many :replies, dependent: :destroy
   
   
   attr_reader :password

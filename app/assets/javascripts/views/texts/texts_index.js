@@ -9,5 +9,8 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 		this.$el.html(content);
 		return this;
 	},
-
+	events: {
+		'click button#sort-text-index':'sortIndex'
+	}
+	
 });

@@ -1,1 +1,1 @@
-json.(@crit, :user_id, :text_id, :content, :start_idx, :end_idx, :user, :text)
+json.(@crit, :user_id, :text_id, :content, :start_idx, :end_idx, :user, :text, :replies)
