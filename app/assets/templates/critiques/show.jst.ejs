@@ -1,5 +1,4 @@
-
-<h4 class="hilite"><%= critique.text().escape("content").slice(
+<h4 class="hilite"><%= _.unescape(critique.text().escape("content")).slice(
 			critique.get('start_idx'),
 			critique.get('end_idx') + 1
 ) %></h4>
@@ -17,5 +16,5 @@
 	
 
 <div class="replies"></div>	
-
 <div class="reply-new"></div>
+<button id="reply-button">add reply</button>

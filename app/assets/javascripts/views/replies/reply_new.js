@@ -3,17 +3,23 @@ Wordshop.Views.ReplyNew = Backbone.View.extend({
 	template: JST['replies/new'],
 	
 	render: function(){
-		var content = this.template();
+		var content = this.template({
+			crit: this.model
+		});
 		this.$el.html(content);
 		return this;
 	}, 
 	
 	events: {
-		"click button#reply-new": "newReply"
+		'submit form#reply-submit': 'submit'
 	},
 	
-	newReply: function(){
+	submit: function(event){
+		event.preventDefault();
+		var formData = $(event.target).serializeJSON();
 		
+		debugger
 	}
+	
 	
 });

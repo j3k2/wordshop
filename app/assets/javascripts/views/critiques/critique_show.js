@@ -7,11 +7,6 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.replies(), "add", this.addReply);
 		
-		var responseNewView = new Wordshop.Views.ReplyNew({
-			model: this.model
-		});
-		this.addSubview(".reply-new", responseNewView);
-		
 		var that = this;
 		this.model.replies().forEach(function(reply){
 			that.addReply(reply);
@@ -19,7 +14,8 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 	},
 	
 	events: {
-		'click button#crit-delete':'deleteCrit'
+		'click button#crit-delete':'deleteCrit',
+		"click button#reply-button": "addNewForm"
 	},
 	
 	render: function(){
@@ -36,6 +32,14 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 			model: reply
 		});
 		this.addSubview(".replies", replyShowView);
+	},
+	
+	addNewForm: function(){
+		var responseNewView = new Wordshop.Views.ReplyNew({
+			model: this.model
+		});
+		this.addSubview(".reply-new", responseNewView);
+		$('button#reply-button').remove();
 	},
 	
 	deleteCrit: function(){
