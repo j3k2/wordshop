@@ -14,9 +14,11 @@
   	<div class="container">
 			<a href="/" class="navbar-brand">wordshop</a>
 			<div class="btngrp" role="group">  			  
-				<a href="/#" class="btn btn-default">Browse</a>
-				<a href="/#texts/new" class="btn btn-default">Add text</a>
+				
 				<% if current_user %>
+				
+					<a href="/#" class="btn btn-default">Browse</a>
+					<a href="/#texts/new" class="btn btn-default">Add text</a>
 					<a class="btn btn-default" href="/#users/<%= current_user.id %>">
 						<%= current_user.username %>
 					</a>				
@@ -42,6 +44,7 @@
 			</ul>
 	<%= yield %>
 		</div>
+		
 		
 		<% if current_user %>
 		<script type="text/javascript">

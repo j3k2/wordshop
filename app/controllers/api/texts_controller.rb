@@ -13,6 +13,8 @@ class Api::TextsController < ApplicationController
     @text = Text.new(text_params)
     
     text_params[:content].gsub!(/\r/, '')
+    text_params[:content].gsub!(/</, '')
+    text_params[:content].gsub!(/>/, '')
     
     if @text.save
       render json: @text

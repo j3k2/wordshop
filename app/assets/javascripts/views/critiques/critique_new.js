@@ -1,7 +1,8 @@
 Wordshop.Views.CritiqueNew = Backbone.View.extend({
 	
   template: JST['critiques/new'],
-	
+	tagName: 'div',
+	className: 'crit-show',
 	initialize: function(options){
 		this.selString = options.selString;
 		this.startIdx = options.startIdx;
