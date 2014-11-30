@@ -4,6 +4,8 @@ Wordshop.Views.UserShow = Backbone.View.extend({
 	initialize: function(){
 		this.listenTo(this.model, 'sync', this.render);
 	},
+	tagName: 'div',
+	className: 'no-sidebar',
 	
 	render: function(){
 		var content = this.template({

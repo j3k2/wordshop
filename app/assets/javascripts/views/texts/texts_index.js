@@ -1,6 +1,8 @@
 Wordshop.Views.TextsIndex = Backbone.View.extend({
 
   template: JST['texts/index'],
+	tagName: 'div',
+	className: 'no-sidebar',
 	initialize: function(){
 		this.listenTo(this.collection, 'sync', this.render);		
 	},

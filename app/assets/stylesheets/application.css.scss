@@ -63,6 +63,7 @@ background-size:cover;
 	color:black;
 	background:lightgrey;
   border-radius: 5px;
+	border: 1px solid black;
 	
 }
 
@@ -73,6 +74,7 @@ background-size:cover;
 	color:black;
 	background:lightgrey;
   border-radius: 5px;
+	border: 1px solid black;
 	
 }
 
@@ -179,9 +181,6 @@ position:absolute;
 right:0px;
 }
 
-.list-group{
-width:max-content;
-}
 .badge{
 margin-left:25px;
 margin-right:5px;
@@ -222,4 +221,8 @@ div.about{
 	border-radius:5px;
 	padding:30px;
 }
-
+.no-sidebar{
+width:600px;
+margin-left:auto;
+margin-right:auto;
+}

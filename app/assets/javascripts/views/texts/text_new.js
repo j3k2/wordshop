@@ -1,7 +1,8 @@
 Wordshop.Views.TextNew = Backbone.View.extend({
 	
 	template: JST['texts/new'],
-	
+	tagName: 'div',
+	className: 'no-sidebar',
 	render: function(){
 		var content = this.template();
 		this.$el.html(content);
