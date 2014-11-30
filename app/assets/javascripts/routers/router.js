@@ -24,7 +24,7 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 			model: text
 		});
 		this._swapView(textShowView);
-		this._clearSidebarView();
+		this._clearSidebarView();		
 		
 	},
 	

@@ -17,10 +17,15 @@
 @import "bootstrap";
 @import "bootstrap-sprockets";
 
+body{
+background-image: url("2326873674_c392bdc4e0_o.jpg");
+background-size:cover;
+}
 .navbar{
 	height: 80px;
 	padding: 8px;
 	background: cyan;
+	border:none;
 }
 
 .navbar-default .navbar-brand{
@@ -203,3 +208,18 @@ height:100px;
 .reply-content{
 	padding:2px;
 }
+div.splash-wrapper{
+	background:white;
+  width:max-content;
+  padding:30px;
+	padding-top:10px;
+	padding-bottom:10px;
+	border-radius:5px;
+
+}
+div.about{
+	background:white;
+	border-radius:5px;
+	padding:30px;
+}
+
