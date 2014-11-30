@@ -24,8 +24,6 @@ Wordshop.Views.CommentNew = Backbone.View.extend({
 		comment.save({},{
 			success: function(){
 				that.text.comments().add(comment);
-				var url = "texts/" + that.text.id;
-				Backbone.history.navigate(url, {trigger: true});
 			}
 		});
 		

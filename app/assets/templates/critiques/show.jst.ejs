@@ -10,10 +10,11 @@
 
 <br>
 <em class="byline">posted by 
-	<a href="#users/<%= critique.user().id %>"><%= critique.user().escape('username') %></a></em>
-<% if(critique.user().id == window.currentUser.id){%>
+	<a href="#users/<%= critique.user().id %>"><%= critique.user().escape('username') %></a><% if(critique.user().id == window.currentUser.id){%>
 	<button id="crit-delete" class="btn-default">Delete</button>
-<% } %>
+<% } %></em>
+	
+
 <div id="reply-wrapper">	
 <div class="replies"></div>	
 <div class="reply-new"></div>

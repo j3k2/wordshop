@@ -100,6 +100,9 @@ form.button_to{
 	background: grey;
 	display:block;
 	margin-top: 10px;
+	height:30px;
+	padding-top:5px;
+	padding-left: 5px;
 }
 
 .hilite{
@@ -169,12 +172,21 @@ width:max-content;
 margin-left:25px;
 margin-right:5px;
 }
+#crit-delete{
+float: right;
+position:relative;
+margin-right:5px;
+bottom:5px;
+}
 .reply-show{
 	border: 1px solid black;
 	margin:2px;
 	white-space:pre-line;
+  border-radius: 5px;
 	
 }
 #reply-wrapper{
-	margin-top:px;
+	margin-top:5px;
+	border: none;
+	
 }
