@@ -18,8 +18,9 @@
 @import "bootstrap-sprockets";
 
 body{
-background-image: url("2326873674_c392bdc4e0_o.jpg");
+background-image: url("http://remagez.files.wordpress.com/2014/02/img_3261.jpg");
 background-size:cover;
+background-repeat:no-repeat;
 }
 .navbar{
 	height: 80px;
@@ -83,10 +84,15 @@ background-size:cover;
 	width:100%;
 	border: 1px solid black;
   border-radius: 5px;
-	
-	
 }
 
+
+.txti-small{
+	background:lightgrey;
+	width:200px;
+	border: 1px solid black;
+  border-radius: 5px;
+}
 form.button_to{
 	display: inline-block;
 }
@@ -176,7 +182,8 @@ padding: 5px;
 text-align: left;
 }
 
-#sidebar{
+#text-sidebar{
+background:white;
 position:absolute;
 right:0px;
 }
@@ -211,8 +218,6 @@ div.splash-wrapper{
 	background:white;
   width:max-content;
   padding:30px;
-	padding-top:10px;
-	padding-bottom:10px;
 	border-radius:5px;
 
 }
