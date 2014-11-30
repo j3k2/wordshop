@@ -32,7 +32,7 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 			model: crit,
 			text: this.model
 		});
-		this._swapSidebarView(critShowView);
+		Wordshop.router._swapSidebarView(critShowView);
 		this.setSidebarPosition(event);
 	},
 	
@@ -112,13 +112,6 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 				that.addSubview("#text-comments", commentShowView);
 			}
 		});
-	},
-	_swapSidebarView: function(view){
-		if(Wordshop.router.currentSidebarView){
-			Wordshop.router.currentSidebarView.remove();
-		}
-		Wordshop.router.currentSidebarView = view;
-		$('#sidebar').html(view.render().$el);
-	},
+	}
 	
 });
