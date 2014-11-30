@@ -41,6 +41,7 @@ background-repeat:no-repeat;
 	padding:10px;
 	padding-top: 15px;
 	float: right;
+	background: cyan;
 }
 
 
@@ -186,6 +187,7 @@ text-align: left;
 background:white;
 position:absolute;
 right:0px;
+padding:0px;
 }
 
 .badge{
@@ -210,6 +212,7 @@ width: 200px;
 }
 #footer{
 height:100px;
+width:100%;
 }
 .reply-content{
 	padding:2px;
@@ -233,4 +236,7 @@ div.about{
 width:400px;
 margin-left:auto;
 margin-right:auto;
+}
+.navbar-form{
+background:cyan;
 }
