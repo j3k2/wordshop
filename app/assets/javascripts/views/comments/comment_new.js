@@ -23,6 +23,9 @@ Wordshop.Views.CommentNew = Backbone.View.extend({
 		var that = this;
 		comment.save({},{
 			success: function(){
+				$('form#comment-submit').each(function(){
+					this.reset();
+				});
 				that.text.comments().add(comment);
 			}
 		});
