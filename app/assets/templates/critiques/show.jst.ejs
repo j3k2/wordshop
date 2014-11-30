@@ -7,14 +7,15 @@
 <%= critique.escape('content') %>
 </div>
 
-<% if(critique.user().id == window.currentUser.id){%>
-	<button id="crit-delete">Delete</button>
-<% } %>
-<br>
-<em class="byline"> - <a href="#users/<%= critique.user().id %>">
-	<%= critique.user().escape('username') %></a> - </em>
-	
 
+<br>
+<em class="byline">posted by 
+	<a href="#users/<%= critique.user().id %>"><%= critique.user().escape('username') %></a></em>
+<% if(critique.user().id == window.currentUser.id){%>
+	<button id="crit-delete" class="btn-default">Delete</button>
+<% } %>
+<div id="reply-wrapper">	
 <div class="replies"></div>	
 <div class="reply-new"></div>
-<button id="reply-button">add reply</button>
+<button id="reply-button" class="btn-default">Reply</button>
+</div>

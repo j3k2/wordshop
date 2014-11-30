@@ -37,14 +37,19 @@
 	float: right;
 }
 
+
+
 .btn-default{
 	background:cyan;
 	border:none;
+  border-radius: 5px;
+	margin:2px;
 }
 
 .btn-default:hover{
 	background:white;
 }
+
 
 .txta{
 	resize: none;
@@ -52,6 +57,8 @@
 	height: 250px;
 	color:black;
 	background:lightgrey;
+  border-radius: 5px;
+	
 }
 
 .txta-small{
@@ -60,11 +67,15 @@
 	height: 100px;
 	color:black;
 	background:lightgrey;
+  border-radius: 5px;
+	
 }
 
 .txti{
 	background:lightgrey;
 	width:100%;
+  border-radius: 5px;
+	
 	
 }
 
@@ -88,8 +99,6 @@ form.button_to{
 .byline{
 	background: grey;
 	display:block;
-	color: white;
-	text-align: center;
 	margin-top: 10px;
 }
 
@@ -166,4 +175,6 @@ margin-right:5px;
 	white-space:pre-line;
 	
 }
-
+#reply-wrapper{
+	margin-top:px;
+}

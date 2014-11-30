@@ -3,11 +3,10 @@ by
 <a href="#/users/<%= text.user().id %>">
 	<%= text.user().escape('username') %></a>
 <% if(window.currentUser.id == text.user().id){ %>
-	<button id="text-delete">Delete</button>
+	<button id="text-delete" class="btn-default">Delete</button>
 <% } %>	
 <pre id="text-content"><%= text.annotatedContent() %></pre>
 
-COMMENTS:
 <div id="text-comments"></div>
 ADD NEW COMMENT:
 <div id="text-new"></div>
