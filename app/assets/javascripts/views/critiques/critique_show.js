@@ -48,7 +48,7 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 			text: this.text
 		});
 		this.addSubview(".reply-new", responseNewView);
-		$('button#reply-button').remove();
+		$('button#reply-button').css("visibility", "hidden");
 	},
 	
 	deleteCrit: function(){

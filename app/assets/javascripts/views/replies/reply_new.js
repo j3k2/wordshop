@@ -16,7 +16,8 @@ Wordshop.Views.ReplyNew = Backbone.View.extend({
 	}, 
 	
 	events: {
-		'submit form#reply-submit': 'submit'
+		'submit form#reply-submit': 'submit',
+		'click button#cancel-button': 'removeForm'
 	},
 	
 	submit: function(event){
@@ -29,9 +30,17 @@ Wordshop.Views.ReplyNew = Backbone.View.extend({
 				that.crit.replies().add(reply);
 				var url = "texts/" + that.text.id + "/" + that.crit.id;
 				Backbone.history.navigate(url, {trigger: true});
+				$('button#reply-button').css("visibility", "visible");
 				that.remove();
 			}
 		});
+		
+	},
+	
+	removeForm: function(event){
+		event.preventDefault();
+		$('button#reply-button').css("visibility", "visible");
+		this.remove();
 		
 	}
 	
