@@ -4,7 +4,7 @@ window.Wordshop = {
   Views: {},
   Routers: {},
   initialize: function() {
-		new Wordshop.Routers.Router();
+		this.router = new Wordshop.Routers.Router();
 		Backbone.history.start();
   }
 };

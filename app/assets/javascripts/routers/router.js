@@ -3,7 +3,6 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 		'':'textIndex',
 		'users/:id': 'userShow',
 		'texts/new':'textNew',
-		'texts/:id/:crit_id':'critiqueShow',
 		'texts/:id':'textShow'
 	},
 	
@@ -32,21 +31,6 @@ Wordshop.Routers.Router = Backbone.Router.extend({
 		var textNewView = new Wordshop.Views.TextNew();
 		this._swapView(textNewView);
 		this._clearSidebarView();
-	},
-	
-	critiqueShow: function(id, crit_id){
-		var text = Wordshop.Collections.texts.getOrFetch(id);
-		var textShowView = new Wordshop.Views.TextShow({
-			model: text
-		});
-		this._swapView(textShowView);
-
-		var crit = Wordshop.Collections.crits.getOrFetch(crit_id);
-		var critShowView = new Wordshop.Views.CritiqueShow({
-			model: crit,
-			text: text
-		});
-		this._swapSidebarView(critShowView);		
 	},
 
 	userShow: function(id){

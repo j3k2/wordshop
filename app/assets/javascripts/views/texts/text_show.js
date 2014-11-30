@@ -19,8 +19,21 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 	
 	events: {
 		'mouseup pre#text-content':'getSelectedText',
-		'click pre#text-content > a':'setSidebarPosition',
+		'click pre#text-content > a':'renderCritique',
 		'click button#text-delete': 'deleteText'
+	},
+	
+	renderCritique: function(event){
+		event.preventDefault();		
+		var id = parseInt(event.target.attributes.href.value);
+		
+		var crit = Wordshop.Collections.crits.getOrFetch(id);
+		var critShowView = new Wordshop.Views.CritiqueShow({
+			model: crit,
+			text: this.model
+		});
+		this._swapSidebarView(critShowView);
+		this.setSidebarPosition(event);
 	},
 	
 	setSidebarPosition: function(event){
@@ -99,5 +112,13 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 				that.addSubview("#text-comments", commentShowView);
 			}
 		});
-	}
+	},
+	_swapSidebarView: function(view){
+		if(Wordshop.router.currentSidebarView){
+			Wordshop.router.currentSidebarView.remove();
+		}
+		Wordshop.router.currentSidebarView = view;
+		$('#sidebar').html(view.render().$el);
+	},
+	
 });
