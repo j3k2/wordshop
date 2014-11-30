@@ -1,7 +1,7 @@
-<h4 class="hilite"><%= _.unescape(critique.text().escape("content")).slice(
+<p class="hilite"><%= _.unescape(critique.text().escape("content")).slice(
 			critique.get('start_idx'),
 			critique.get('end_idx') + 1
-) %></h4>
+) %></p>
 
 <div id='crit-content'>
 <%= critique.escape('content') %>
@@ -15,8 +15,6 @@
 <% } %></em>
 	
 
-<div id="reply-wrapper">	
 <div class="replies"></div>	
 <div class="reply-new"></div>
 <button id="reply-button" class="btn-default">Reply</button>
-</div>
