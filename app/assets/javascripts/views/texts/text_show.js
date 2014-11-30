@@ -1,10 +1,20 @@
-Wordshop.Views.TextShow = Backbone.View.extend({
+Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 	
   template: JST['texts/show'],
 	
 	initialize: function(){
 		this.listenTo(this.model, 'sync', this.render);
 		this.listenTo(this.model, "critiqueCreated", this.render);
+		this.listenTo(this.model.comments(), "add", this.addComment);
+		var that = this;
+		this.model.comments().forEach(function(comment){
+			that.addComment(comment);
+		});
+		
+		var commentNewView = new Wordshop.Views.CommentNew({
+			text: this.model
+		});
+		this.addSubview("#text-new", commentNewView);
 	},
 	
 	events: {
@@ -55,6 +65,7 @@ Wordshop.Views.TextShow = Backbone.View.extend({
 	render: function(){
 		var content = this.template({text: this.model});
 		this.$el.html(content);
+		this.attachSubviews();
 		return this;
 	},
 	
@@ -74,6 +85,18 @@ Wordshop.Views.TextShow = Backbone.View.extend({
 		this.model.destroy({
 			success: function(){
 				Backbone.history.navigate("", {trigger: true});
+			}
+		});
+	},
+	
+	addComment: function(comment){
+		var that = this;
+		comment.fetch({
+			success: function(){
+				var commentShowView = new Wordshop.Views.CommentShow({
+					model: comment
+				});
+				that.addSubview("#text-comments", commentShowView);
 			}
 		});
 	}

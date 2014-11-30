@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     resources :critiques
     resources :users
     resources :replies
+    resources :comments
   end
 end
