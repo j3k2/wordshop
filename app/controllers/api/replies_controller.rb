@@ -10,6 +10,11 @@ class Api::RepliesController < ApplicationController
     end
   end
   
+  def show
+    @reply = Reply.find(params[:id])
+    
+    render :show
+  end
   private
   def reply_params
     params.require(:reply).permit(:content, :user_id, :critique_id)

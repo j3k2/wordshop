@@ -30,10 +30,16 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 	},
 	
 	addReply: function(reply){
-		var replyShowView = new Wordshop.Views.ReplyShow({
-			model: reply
+		var that = this;
+		reply.fetch({
+			success: function(){
+				var replyShowView = new Wordshop.Views.ReplyShow({
+					model: reply
+				});
+				that.addSubview(".replies", replyShowView);
+			}
 		});
-		this.addSubview(".replies", replyShowView);
+
 	},
 	
 	addNewForm: function(){
