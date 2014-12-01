@@ -1,4 +1,10 @@
 class Api::CritiquesController < ApplicationController
+  
+  def index
+    @crits = Critique.all
+    
+    render json: @crits
+  end
   def show
     @crit = Critique.find(params[:id])
     render :show

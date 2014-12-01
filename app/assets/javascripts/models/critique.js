@@ -9,7 +9,7 @@ Wordshop.Models.Critique = Backbone.Model.extend({
 	
 	text: function(){
 		this._text = this._text ||
-		new Wordshop.Models.Text();
+		new Wordshop.Models.Text({id: this.get('text_id')});
 		return this._text;
 	},
 	

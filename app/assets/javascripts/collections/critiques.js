@@ -4,7 +4,9 @@ Wordshop.Collections.Critiques = Backbone.Collection.extend({
 	comparator: function(crit){
 		return -crit.get('end_idx');
 	},
+	
   model: Wordshop.Models.Critique,
+	
 	getOrFetch: function(id){
 		var crit = this.get(id);
 		var crits = this;
