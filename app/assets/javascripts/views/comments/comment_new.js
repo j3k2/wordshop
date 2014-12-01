@@ -13,7 +13,8 @@ Wordshop.Views.CommentNew = Backbone.View.extend({
 	},
 	
 	events: {
-		'submit form#comment-submit':'submit'
+		'submit form#comment-submit':'submit',
+		'click button#cancel-button': 'removeForm'
 	},
 	
 	submit: function(event){
@@ -29,6 +30,13 @@ Wordshop.Views.CommentNew = Backbone.View.extend({
 				that.text.comments().add(comment);
 			}
 		});
+		
+	},
+	
+	removeForm: function(event){
+		event.preventDefault();
+		$('button#comment-button').css("visibility", "visible");
+		this.remove();
 		
 	}
 

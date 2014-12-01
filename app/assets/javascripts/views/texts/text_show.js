@@ -11,16 +11,24 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 			that.addComment(comment);
 		});
 		
-		var commentNewView = new Wordshop.Views.CommentNew({
-			text: this.model
-		});
-		this.addSubview("#text-new", commentNewView);
+	
 	},
 	
 	events: {
 		'mouseup pre#text-content':'getSelectedText',
 		'click pre#text-content > a':'renderCritique',
-		'click button#text-delete': 'deleteText'
+		'click button#text-delete': 'deleteText',
+		'click button#comment-button':'addCommentForm'
+	},
+	
+	addCommentForm: function(event){
+		event.preventDefault();
+		var commentNewView = new Wordshop.Views.CommentNew({
+			text: this.model
+		});
+		this.addSubview("#text-new", commentNewView);
+		$('button#comment-button').css("visibility", "hidden");
+		
 	},
 	
 	renderCritique: function(event){
