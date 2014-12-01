@@ -1,5 +1,9 @@
 json.extract! @user, :username
-json.texts @user.texts
+json.texts do
+	json.array! @user.texts do |text|
+		json.partial! 'api/texts/text', text: text
+	end
+end
 json.critiques do
 	json.array! @user.critiques do |critique|
 		json.partial! 'api/critiques/critique', critique: critique

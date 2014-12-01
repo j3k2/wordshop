@@ -1,7 +1,8 @@
 <% replies.forEach(function(reply){ %>
 
-<div class="user-crit-show">
+<div class="user-item-show">
 
+<%= reply.id %>
 	on	<a href="#texts/<%= reply.text().id %>"><%= reply.text().escape('title') %></a>
 
 	<p class="hilite"><%= _.unescape(reply.text().escape("content")).slice(

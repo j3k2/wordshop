@@ -7,6 +7,12 @@ Wordshop.Views.UserCommentsIndex = Backbone.View.extend({
 	
 	initialize: function() {
 		this.listenTo(this.collection, 'add remove sync', this.render);
+		
+		this.collection.comparator = function(comment){
+			return -comment.id;
+		};
+		this.collection.sort();
+		
 	},
 	
 	render: function(){

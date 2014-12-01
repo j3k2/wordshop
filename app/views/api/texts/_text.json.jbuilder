@@ -1,1 +1,3 @@
-json.extract! text, :id, :title, :user_id, :content
+json.extract! text, :id, :title, :content, :critiques
+
+json.user text.user, :id, :username

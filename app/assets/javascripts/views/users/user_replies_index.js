@@ -6,6 +6,11 @@ Wordshop.Views.UserRepliesIndex = Backbone.View.extend({
 	
 	initialize: function() {
 		this.listenTo(this.collection, 'add remove sync', this.render);
+		this.collection.comparator = function(reply){
+			return -reply.id;
+		};
+		this.collection.sort();
+		
 	},
 	
 	render: function(){

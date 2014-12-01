@@ -1,7 +1,10 @@
 <% comments.forEach(function(comment){ %>
+	<div class="user-item-show">
 	
+	<%= comment.id %>
 	on	<a href="#texts/<%= comment.text().id %>"><%= comment.text().escape('title') %></a>
 
 <div class="reply-content"><%= comment.escape('content') %></div>
+</div>
 
 <% }) %>

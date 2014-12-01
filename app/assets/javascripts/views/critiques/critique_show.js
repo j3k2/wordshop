@@ -65,7 +65,7 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 	},
 	
 	deleteCrit: function(){
-		var r = confirm('Are you sure you want to delete this critique?');
+		var r = confirm('Are you sure you want to delete this critique? All of its replies will also be deleted!');
 		if(r){
 			var that = this;
 			this.model.destroy({
