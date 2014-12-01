@@ -4,7 +4,7 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 	
 	initialize: function(){
 		this.listenTo(this.model, 'sync', this.render);
-		this.listenTo(this.model, "critiqueCreated", this.render);
+		this.listenTo(this.model, "critiqueChanged", this.render);
 		this.listenTo(this.model.comments(), "add", this.addComment);
 		this.listenTo(this.model.comments(), "remove", this.removeComment);
 		
@@ -105,11 +105,14 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 	},
 	
 	deleteText: function(){
-		this.model.destroy({
-			success: function(){
-				Backbone.history.navigate("", {trigger: true});
-			}
-		});
+		var r = confirm('Are you sure you want to delete this text?');
+		if(r){
+			this.model.destroy({
+				success: function(){
+					Backbone.history.navigate("", {trigger: true});
+				}
+			});
+		}
 	},
 	
 	addComment: function(comment){

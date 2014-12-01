@@ -7,6 +7,7 @@ Wordshop.Views.CommentShow = Backbone.View.extend({
 	events: {
 		'click a.delete-small':'deleteComment',
 	},
+	
 	render: function(){
 		var content = this.template({
 			comment: this.model
@@ -16,8 +17,11 @@ Wordshop.Views.CommentShow = Backbone.View.extend({
 	},
 	
 	deleteComment: function(){
-		var that = this;
-		this.model.destroy();
+		var r = confirm('Are you sure you want to delete this comment?');
+		if(r){
+			var that = this;
+			this.model.destroy();
+		}
 	}
 
 });

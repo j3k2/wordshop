@@ -65,13 +65,17 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 	},
 	
 	deleteCrit: function(){
-		var that = this;
-		this.model.destroy({
-			success: function(){
-				var url = "texts/" + that.model.text().id;
-				Backbone.history.navigate(url, {trigger: true});
-			}
-		});
+		var r = confirm('Are you sure you want to delete this critique?');
+		if(r){
+			var that = this;
+			this.model.destroy({
+				success: function(){
+					that.text.trigger('critiqueChanged');
+					that.remove();
+				}
+			});
+		}
+
 	}
 	
 	

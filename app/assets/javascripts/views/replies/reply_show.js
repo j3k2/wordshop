@@ -3,9 +3,11 @@ Wordshop.Views.ReplyShow = Backbone.View.extend({
   template: JST['replies/show'],
 	tagName: 'div',
 	className: 'reply-show',
+	
 	events: {
 		'click a.delete-small':'deleteReply',
 	},
+	
 	render: function(){
 		var content = this.template({
 			reply: this.model
@@ -15,8 +17,11 @@ Wordshop.Views.ReplyShow = Backbone.View.extend({
 	},
 	
 	deleteReply: function(){
-		var that = this;
-		this.model.destroy();
+		var r = confirm('Are you sure you want to delete this reply?');
+		if(r){
+			var that = this;
+			this.model.destroy();
+		}
 	}
 
 });

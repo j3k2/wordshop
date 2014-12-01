@@ -31,7 +31,7 @@ Wordshop.Views.CritiqueNew = Backbone.View.extend({
 		Wordshop.Collections.crits.create(this.model, {
 			success: function(){
 				that.text.critiques().add(that.model);
-				that.text.trigger('critiqueCreated');
+				that.text.trigger('critiqueChanged');
 				that.remove();
 			}
 		});
