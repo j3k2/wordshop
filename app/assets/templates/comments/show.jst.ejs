@@ -1,3 +1,3 @@
 <div class="reply-content"><%= comment.escape('content') %></div>
 
-<small class="byline-reply"><em>posted by <a href="#users/<%=comment.user().id%>"><%= comment.user().escape('username') %></a></em></small>
+<small class="byline-reply"><em>posted by <a href="#users/<%=comment.user().id%>"><%= comment.user().escape('username') %></a></em><% if(comment.user().id == window.currentUser.id) { %><a class="delete-small">x</a><% } %></small>

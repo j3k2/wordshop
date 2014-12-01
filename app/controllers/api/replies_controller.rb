@@ -15,6 +15,16 @@ class Api::RepliesController < ApplicationController
     
     render :show
   end
+  
+  def destroy
+    @reply = Reply.find(params[:id])
+    
+    if @reply.destroy
+      render json: @reply
+    else
+      render json: @reply.errors.full_messages
+    end
+  end
   private
   def reply_params
     params.require(:reply).permit(:content, :user_id, :critique_id)

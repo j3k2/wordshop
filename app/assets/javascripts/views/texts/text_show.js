@@ -6,6 +6,8 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model, 'sync', this.render);
 		this.listenTo(this.model, "critiqueCreated", this.render);
 		this.listenTo(this.model.comments(), "add", this.addComment);
+		this.listenTo(this.model.comments(), "remove", this.removeComment);
+		
 		var that = this;
 		this.model.comments().forEach(function(comment){
 			that.addComment(comment);
@@ -120,6 +122,17 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 				that.addSubview("#text-comments", commentShowView);
 			}
 		});
-	}
+	},
+	
+  removeComment: function (comment) {
+    var subview = _.find(
+      this.subviews("#text-comments"),
+      function (subview) {
+        return subview.model === comment;
+      }
+    );
+
+    this.removeSubview("#text-comments", subview);
+  },
 	
 });
