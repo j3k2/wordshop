@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require jquery.serializejson.min.js
 //= require bootstrap-sprockets
+//= require tooltip.js
+//= require popover.js
 //= require underscore
 //= require backbone
 //= require wordshop

@@ -15,6 +15,9 @@
 			<div class="btngrp" role="group">  			  
 				
 				<% if current_user %>
+<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-title="TITLE" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.">
+?</button>
 				
 					<a href="/#" class="btn btn-default">Browse</a>
 					<a href="/#texts/new" class="btn btn-default">Add text</a>
@@ -35,10 +38,7 @@
 						<label for="user_password">Password</label>	
 						<input type="password" name="user[password]" id="user_password" class="txti-small">
 						<input type="submit" value="Sign In" class="btn-default">
-					</form>
-					<!-- <a class="btn btn-default" href="<%= new_session_url %>">
-						Sign In
-					</a>	 -->							
+					</form>						
 				<% end %>
 			</div>
     </div>
@@ -65,7 +65,9 @@
 		        id : "<%= current_user.id %>"
 		    }
     $('body').css({"background": "none", "background-color": 'white'})
-				
+				$(function () {
+				  $('[data-toggle="popover"]').popover()
+				})
 		</script>
 		<% end %>		
 
