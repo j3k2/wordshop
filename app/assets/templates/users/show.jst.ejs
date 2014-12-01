@@ -17,12 +17,12 @@ Critiqued texts:<br>
 	<a href="#texts/<%= text.id %>"><%= text.escape('title') %></a><br>
 <% })%> -->
 
-<br>
+<!-- <br>
 Critiques:<br>
 <% user.critiques().forEach(function(critique){ %>
 	<%= critique.id %>
-<p class="hilite"><%= _.unescape(critique.text().escape("content")).slice(
+<a class="hilite"><%= _.unescape(critique.text().escape("content")).slice(
 					critique.get('start_idx'),
 					critique.get('end_idx') + 1
-		)%></p>
-<% })%>
+		)%></a>
+<% })%> -->

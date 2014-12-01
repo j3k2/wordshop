@@ -10,6 +10,13 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 		});
 		
 		this.addSubview('#user-items-list', UserTextsIndexView);
+		
+		var UserCritsIndexView = new Wordshop.Views.UserCritsIndex({
+			collection: this.model.critiques()
+		});
+		
+		this.addSubview('#user-items-list', UserCritsIndexView);
+		
 	},
 	
 	tagName: 'div',

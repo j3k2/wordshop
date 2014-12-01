@@ -1,0 +1,10 @@
+Critiques:<br>
+<% crits.forEach(function(critique){ %>
+	
+	<%= critique.id %>
+
+<a class="hilite"><%= _.unescape(critique.text().escape("content")).slice(
+					critique.get('start_idx'),
+					critique.get('end_idx') + 1
+		)%></a> on <a href="#texts/<%= critique.text().id %>"><%= critique.text().escape('title') %></a><br>
+<% })%>
