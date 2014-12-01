@@ -65,11 +65,14 @@
 		<script type="text/javascript">
 		    window.currentUser = {
 		        id : "<%= current_user.id %>"
-		    }
-    $('body').css({"background": "none", "background-color": 'white'})
+		    };
+				$('body').css({"background": "none", "background-color": 'white'});
 				$(function () {
 				  $('[data-toggle="popover"]').popover()
-				})
+				});
+				$(function () {
+				  $('[data-toggle="tooltip"]').tooltip()
+				});
 		</script>
 		<% end %>		
 
