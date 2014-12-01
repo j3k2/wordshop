@@ -1,9 +1,18 @@
 <% crits.forEach(function(critique){ %>
-	
-	<%= critique.id %>
+<div class="user-crit-show">
+	critique id: <%= critique.id %>, end index: <%= critique.get('end_idx') %>
 
-<a class="hilite"><%= _.unescape(critique.text().escape("content")).slice(
-					critique.get('start_idx'),
-					critique.get('end_idx') + 1
-		)%></a> on <a href="#texts/<%= critique.text().id %>"><%= critique.text().escape('title') %></a><br>
+	
+	
+	on	<a href="#texts/<%= critique.text().id %>"><%= critique.text().escape('title') %></a>
+
+	<p class="hilite"><%= _.unescape(critique.text().escape("content")).slice(
+				critique.get('start_idx'),
+				critique.get('end_idx') + 1
+	) %></p>
+
+	<div id='crit-content'>
+	<%= critique.escape('content') %>
+	</div>
+</div>	
 <% })%>

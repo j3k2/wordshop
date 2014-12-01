@@ -1,32 +1,13 @@
 <h2><%= user.escape('username') %></h2>
 
 <ul class="nav nav-tabs">
-  <li role="presentation" class="active" id="profile-tab"><a href="#">Profile</a></li>
-  <li role="presentation" id="texts-tab"><a href="#">Texts</a></li>
+  <!-- <li role="presentation" class="active" id="profile-tab"><a href="#">Profile</a></li> -->
+  <li role="presentation" id="texts-tab" class="active"><a href="#">Texts</a></li>
   <li role="presentation" id="critiques-tab"><a href="#">Critiques</a></li>
+  <li role="presentation" id="replies-tab"><a href="#">Replies</a></li>
+  <li role="presentation" id="comments-tab"><a href="#">Comments</a></li>
+	
 </ul>
 <div id="user-items-list">
 
 </div>
-
-<!-- <br>
-Texts Written:<br>
-<% user.texts().forEach(function(text){ %>
-	<a href="#texts/<%= text.id %>"><%= text.escape('title') %></a><br>
-<% })%>
-
-<br>
-Critiqued texts:<br>
-<% user.critiquedTexts().models.forEach(function(text){ %>
-	<a href="#texts/<%= text.id %>"><%= text.escape('title') %></a><br>
-<% })%> -->
-
-<!-- <br>
-Critiques:<br>
-<% user.critiques().forEach(function(critique){ %>
-	<%= critique.id %>
-<a class="hilite"><%= _.unescape(critique.text().escape("content")).slice(
-					critique.get('start_idx'),
-					critique.get('end_idx') + 1
-		)%></a>
-<% })%> -->

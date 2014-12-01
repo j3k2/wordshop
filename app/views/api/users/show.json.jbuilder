@@ -6,3 +6,13 @@ json.critiques do
 	end
 end
 json.critiqued_texts @user.critiqued_texts
+json.replies do
+	json.array! @user.replies do |reply|
+		json.partial! 'api/replies/reply', reply: reply
+	end
+end
+json.comments do
+	json.array! @user.comments do |comment|
+		json.partial! 'api/comments/comment', comment: comment
+	end
+end

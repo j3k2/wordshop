@@ -1,0 +1,1 @@
+json.extract! text, :id, :title, :user_id, :content

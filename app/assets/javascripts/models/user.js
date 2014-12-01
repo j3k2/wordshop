@@ -19,6 +19,18 @@ Wordshop.Models.User = Backbone.Model.extend({
 		return this._critiquedTexts;
 	},
 	
+	replies: function(){
+		this._replies = this._replies ||
+		new Wordshop.Collections.Replies();
+		return this._replies;
+	},
+	
+	comments: function(){
+		this._comments = this._comments ||
+		new Wordshop.Collections.Comments();
+		return this._comments;
+	},
+	
 	parse: function(response){
 		if(response.texts){
 			this.texts().set(response.texts, {parse: true});
@@ -33,6 +45,16 @@ Wordshop.Models.User = Backbone.Model.extend({
 		if(response.critiques){
 			this.critiques().set(response.critiques, {parse: true});
 			delete response.critiques;
+		}
+		
+		if(response.replies){
+			this.replies().set(response.replies, {parse: true});
+			delete response.replies;
+		}
+		
+		if(response.comments){
+			this.comments().set(response.comments, {parse: true});
+			delete response.comments;
 		}
 		return response;
 	}

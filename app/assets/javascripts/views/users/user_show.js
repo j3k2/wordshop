@@ -16,12 +16,20 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 		// });
 		//
 		// this.addSubview('#user-items-list', UserCritsIndexView);
+		
+		var UserTextsIndexView = new Wordshop.Views.UserTextsIndex({
+			collection: this.model.texts()
+		});
+
+		this.addSubview('#user-items-list', UserTextsIndexView);
 
 	},
 	
 	events: {
 		'click #texts-tab':'showTexts',
-		'click #critiques-tab': 'showCritiques'
+		'click #critiques-tab': 'showCritiques',
+		'click #replies-tab': 'showReplies',
+		'click #comments-tab': 'showComments'
 	},
 	
 	tagName: 'div',
@@ -41,8 +49,10 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 		event.preventDefault();
 		
 		$('#texts-tab').addClass('active');
-		$('#profile-tab').removeClass('active');
 		$('#critiques-tab').removeClass('active');
+		$('#replies-tab').removeClass('active');
+		$('#comments-tab').removeClass('active');
+		
 		
 		var that = this;
 		
@@ -61,9 +71,10 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 	showCritiques: function(event){
 		event.preventDefault();
 
-		$('#critiques-tab').addClass('active');
-		$('#profile-tab').removeClass('active');
 		$('#texts-tab').removeClass('active');
+		$('#critiques-tab').addClass('active');
+		$('#replies-tab').removeClass('active');
+		$('#comments-tab').removeClass('active');
 
 		var that = this;
 
@@ -77,6 +88,48 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 		});
 
 		this.addSubview('#user-items-list', UserCritsIndexView);
+	},
+	
+	showReplies: function(event){
+		event.preventDefault();
+		$('#texts-tab').removeClass('active');
+		$('#critiques-tab').removeClass('active');
+		$('#replies-tab').addClass('active');
+		$('#comments-tab').removeClass('active');
+		
+		var that = this;
+		
+		if(this.subviews('#user-items-list')){
+			this.subviews('#user-items-list').forEach(function(subview){
+				that.removeSubview('#user-items-list', subview);
+			});
+		}
+		var UserRepliesIndexView = new Wordshop.Views.UserRepliesIndex({
+			collection: this.model.replies()
+		});
+
+		this.addSubview('#user-items-list', UserRepliesIndexView);
+	},
+	
+	showComments: function(event){
+		event.preventDefault();
+		$('#texts-tab').removeClass('active');
+		$('#critiques-tab').removeClass('active');
+		$('#replies-tab').removeClass('active');
+		$('#comments-tab').addClass('active');
+		
+		var that = this;
+		
+		if(this.subviews('#user-items-list')){
+			this.subviews('#user-items-list').forEach(function(subview){
+				that.removeSubview('#user-items-list', subview);
+			});
+		}
+		var UserCommentsIndexView = new Wordshop.Views.UserCommentsIndex({
+			collection: this.model.comments()
+		});
+
+		this.addSubview('#user-items-list', UserCommentsIndexView);
 	}
 
 });

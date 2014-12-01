@@ -1,0 +1,7 @@
+<% comments.forEach(function(comment){ %>
+	
+	on	<a href="#texts/<%= comment.text().id %>"><%= comment.text().escape('title') %></a>
+
+<div class="reply-content"><%= comment.escape('content') %></div>
+
+<% }) %>

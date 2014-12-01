@@ -1,3 +1,7 @@
-<% texts.forEach(function(text){ %>
-	<a href="#texts/<%= text.id %>" class="hilite"><%= text.escape('title') %></a><br>
-<% }) %>
+	<div class="list-group index">
+	<% texts.forEach(function(text){ %>
+		<a href="#texts/<%= text.id %>" class="list-group-item index"><%= text.escape('title') %> by <%= text.user().escape('username') %> 
+			<span class="badge"><%= text.critiques().length %></span>
+  <% })%></a>
+
+</div>

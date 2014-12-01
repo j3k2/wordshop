@@ -1,9 +1,8 @@
-Wordshop.Views.UserCritsIndex = Backbone.View.extend({
+Wordshop.Views.UserRepliesIndex = Backbone.View.extend({
 	
-	template: JST['users/user_crits_index'],
+	template: JST['users/user_replies_index'],
 	tagName: 'div',
 	className: 'tab-show',
-	
 	
 	initialize: function() {
 		this.listenTo(this.collection, 'add remove sync', this.render);
@@ -11,10 +10,9 @@ Wordshop.Views.UserCritsIndex = Backbone.View.extend({
 	
 	render: function(){
 		var content = this.template({
-			crits: this.collection
+			replies: this.collection
 		});
-		this.$el.html(content);
-		
+		this.$el.html(content);		
 		return this;
 	}
 	

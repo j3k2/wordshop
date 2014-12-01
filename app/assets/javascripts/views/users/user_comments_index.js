@@ -1,6 +1,6 @@
-Wordshop.Views.UserCritsIndex = Backbone.View.extend({
+Wordshop.Views.UserCommentsIndex = Backbone.View.extend({
 	
-	template: JST['users/user_crits_index'],
+	template: JST['users/user_comments_index'],
 	tagName: 'div',
 	className: 'tab-show',
 	
@@ -11,7 +11,7 @@ Wordshop.Views.UserCritsIndex = Backbone.View.extend({
 	
 	render: function(){
 		var content = this.template({
-			crits: this.collection
+			comments: this.collection
 		});
 		this.$el.html(content);
 		

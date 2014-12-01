@@ -1,0 +1,17 @@
+<% replies.forEach(function(reply){ %>
+
+<div class="user-crit-show">
+
+	on	<a href="#texts/<%= reply.text().id %>"><%= reply.text().escape('title') %></a>
+
+	<p class="hilite"><%= _.unescape(reply.text().escape("content")).slice(
+				reply.critique().get('start_idx'),
+				reply.critique().get('end_idx') + 1
+	) %></p>
+
+<div class="reply-content"><%= reply.escape('content') %></div>
+
+</div>	
+
+
+<% }) %>
