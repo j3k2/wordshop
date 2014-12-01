@@ -12,24 +12,42 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 		return this;
 	},
 	events: {
-		'click button#sort-texts-index-desc':'sortIndexDesc',
-		'click button#sort-texts-index-asc':'sortIndexAsc'
+		'click button#sort-texts-index-crits-desc':'sortIndexCritsDesc',
+		'click button#sort-texts-index-crits-asc':'sortIndexCritsAsc',
+		// 'click button#sort-texts-index-title-desc':'sortIndexTitleDesc',
+		// 'click button#sort-texts-index-title-asc':'sortIndexTitleAsc',
 	},
 	
-	sortIndexDesc: function(){
+	sortIndexCritsDesc: function(){
 		this.collection.comparator = function(text){
 			return -text.critiques().length;
 		};
 		this.collection.sort();
-		$('button#sort-texts-index-desc').attr('id','sort-texts-index-asc');
+		$('button#sort-texts-index-crits-desc').attr('id','sort-texts-index-crits-asc');
 	},
 	
-	sortIndexAsc: function(){
+	sortIndexCritsAsc: function(){
 		this.collection.comparator = function(text){
 			return text.critiques().length;
 		};
 		this.collection.sort();
-		$('button#sort-texts-index-asc').attr('id','sort-texts-index-desc');
-	}
+		$('button#sort-texts-index-crits-asc').attr('id','sort-texts-index-crits-desc');
+	},
+	
+	// sortIndexTitleDesc: function(){
+// 		this.collection.comparator = function(text){
+// 			return -text.get('title');
+// 		};
+// 		this.collection.sort();
+// 		$('button#sort-texts-index-title-desc').attr('id','sort-texts-index-title-asc');
+// 	},
+//
+// 	sortIndexTitleAsc: function(){
+// 		this.collection.comparator = function(text){
+// 			return text.get('title');
+// 		};
+// 		this.collection.sort();
+// 		$('button#sort-texts-index-title-asc').attr('id','sort-texts-index-title-desc');
+// 	}
 	
 });

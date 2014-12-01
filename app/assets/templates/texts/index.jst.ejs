@@ -1,5 +1,9 @@
 <h2>Featured texts:</h2>
-<button id="sort-texts-index-asc">Sort by number of critiques</button>
+Sort by:
+<button id="sort-texts-index-crits-asc" class="btn-default"># of critiques</button>
+<!-- <button id="sort-texts-index-title-asc" class="btn-default">title</button> -->
+
+<br><br>
 	<div class="list-group index">
 	<% texts.forEach(function(text){ %>
 		<a href="#texts/<%= text.id %>" class="list-group-item index"><%= text.escape('title') %> by <%= text.user().escape('username') %> 
