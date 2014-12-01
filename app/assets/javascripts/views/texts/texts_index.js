@@ -12,42 +12,50 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 		return this;
 	},
 	events: {
-		'click button#sort-texts-index-crits-desc':'sortIndexCritsDesc',
-		'click button#sort-texts-index-crits-asc':'sortIndexCritsAsc',
-		// 'click button#sort-texts-index-title-desc':'sortIndexTitleDesc',
-		// 'click button#sort-texts-index-title-asc':'sortIndexTitleAsc',
+		'click button#sort-texts-index-crits':'sortIndexCrits',
+		'click button#sort-texts-index-title':'sortIndexTitle',
 	},
 	
-	sortIndexCritsDesc: function(){
-		this.collection.comparator = function(text){
-			return -text.critiques().length;
-		};
-		this.collection.sort();
-		$('button#sort-texts-index-crits-desc').attr('id','sort-texts-index-crits-asc');
+	sortIndexCrits: function(){
+		if($('button#sort-texts-index-crits').data('sort-method') === 'desc'){
+			this.collection.comparator = function(text){
+				return -text.critiques().length;
+			};
+			this.collection.sort();
+			$('button#sort-texts-index-crits').data('sort-method', 'asc');
+		} else {
+			this.collection.comparator = function(text){
+				return text.critiques().length;
+			};
+			this.collection.sort();
+			$('button#sort-texts-index-crits').data('sort-method', 'desc');
+			
+		}
 	},
 	
-	sortIndexCritsAsc: function(){
-		this.collection.comparator = function(text){
-			return text.critiques().length;
-		};
-		this.collection.sort();
-		$('button#sort-texts-index-crits-asc').attr('id','sort-texts-index-crits-desc');
-	},
-	
-	// sortIndexTitleDesc: function(){
-// 		this.collection.comparator = function(text){
-// 			return -text.get('title');
-// 		};
-// 		this.collection.sort();
-// 		$('button#sort-texts-index-title-desc').attr('id','sort-texts-index-title-asc');
-// 	},
-//
-// 	sortIndexTitleAsc: function(){
-// 		this.collection.comparator = function(text){
-// 			return text.get('title');
-// 		};
-// 		this.collection.sort();
-// 		$('button#sort-texts-index-title-asc').attr('id','sort-texts-index-title-desc');
-// 	}
+	sortIndexTitle: function(){
+		if($('button#sort-texts-index-title').data('sort-method') === 'desc'){
+			this.collection.comparator = function(text){
+				//thanks to andrew-de-andrade on stackoverflow:
+				var str = text.get('title');
+				  str = str.toLowerCase();
+				  str = str.split("");
+				  str = _.map(str, function(letter) { 
+				    return String.fromCharCode(-(letter.charCodeAt(0)));
+				  });
+				  return str;
+			};
+			this.collection.sort();
+			$('button#sort-texts-index-title').data('sort-method', 'asc');
+		} else {
+			this.collection.comparator = function(text){
+				return text.get('title');
+			};
+			this.collection.sort();
+			$('button#sort-texts-index-title').data('sort-method', 'desc');
+			
+		}
+	}
+
 	
 });
