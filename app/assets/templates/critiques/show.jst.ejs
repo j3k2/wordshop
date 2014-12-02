@@ -10,7 +10,7 @@
 
 <br>
 <em class="byline">posted by 
-	<a href="#users/<%= critique.user().id %>"><%= critique.user().escape('username') %></a> on <%= new Date(critique.get('created_at')).getUTCMonth() + 1 %>-<%= new Date(critique.get('created_at')).getUTCDate() %>-<%= new Date(critique.get('created_at')).getUTCFullYear() %>
+	<a href="#users/<%= critique.user().id %>"><%= critique.user().escape('username') %></a> on <%= new Date(critique.get('created_at')).getMonth() + 1 %>-<%= new Date(critique.get('created_at')).getDate() %>-<%= new Date(critique.get('created_at')).getFullYear() %>
 	<% if(critique.user().id == window.currentUser.id){%>
 	<button id="crit-delete" class="btn-default">Delete</button>
 <% } %></em>

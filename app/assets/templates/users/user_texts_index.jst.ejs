@@ -6,7 +6,7 @@
 		
 	<% texts.forEach(function(text){ %>
 		<a href="#texts/<%= text.id %>" class="list-group-item index"><strong><%= text.escape('title') %></strong>
-			<small><em>on <%= new Date(text.get('created_at')).getUTCMonth() + 1 %>-<%= new Date(text.get('created_at')).getUTCDate() %>-<%= new Date(text.get('created_at')).getUTCFullYear() %></em></small>
+			<small><em>on <%= new Date(text.get('created_at')).getMonth() + 1 %>-<%= new Date(text.get('created_at')).getDate() %>-<%= new Date(text.get('created_at')).getFullYear() %></em></small>
 			
 			<span class="badge"><%= text.critiques().length %></span>
   <% })%></a>
