@@ -2,7 +2,7 @@
 by 
 <a href="#/users/<%= text.user().id %>">
 	<%= text.user().escape('username') %></a>
-	<small><em><span data-livestamp="<%= new Date(text.escape('created_at')).toISOString() %>"></span></em></small>
+	<small><em><%= moment(text.escape('created_at')).fromNow() %></span></em></small>
 	
 <% if(window.currentUser.id == text.user().id){ %>
 	<button id="text-delete" class="btn-default">Delete</button>

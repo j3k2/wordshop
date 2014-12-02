@@ -9,7 +9,7 @@ Sort by:
 	<div class="list-group index">
 	<% texts.forEach(function(text){ %>
 		<a href="#texts/<%= text.id %>" class="list-group-item index"><strong><%= text.escape('title') %></strong> by <%= text.user().escape('username') %> 
-			<small><em><span><%= moment(text.escape('created_at')).fromNow() %></span></em></small>
+			<small><em><%= moment(text.escape('created_at')).fromNow() %></em></small>
 			
 			<span class="badge"><%= text.critiques().length %></span>
   <% })%></a>

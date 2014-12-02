@@ -14,7 +14,7 @@ Sort by: <button id="sort-users-replies-id" data-sort-method="asc" class="btn-de
 
 <div class="reply-content"><%= reply.escape('content') %></div>
 
-<small class="byline-small"><em>posted <span data-livestamp="<%= new Date(reply.escape('created_at')) %>"></span></em></small>
+<small class="byline-small"><em>posted <%= moment(reply.escape('created_at')).fromNow() %></em></small>
 
 </div>	
 
