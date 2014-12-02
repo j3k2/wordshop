@@ -14,6 +14,8 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 	events: {
 		'click button#sort-texts-index-crits':'sortIndexCrits',
 		'click button#sort-texts-index-title':'sortIndexTitle',
+		'click button#sort-texts-index-id':'sortIndexId',
+		
 	},
 	
 	sortIndexCrits: function(){
@@ -55,7 +57,24 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 			$('button#sort-texts-index-title').data('sort-method', 'desc');
 			
 		}
-	}
+	},
+	
+	sortIndexId: function(){
+		if($('button#sort-texts-index-id').data('sort-method') === 'desc'){
+			this.collection.comparator = function(text){
+				return -text.id;
+			};
+			this.collection.sort();
+			$('button#sort-texts-index-id').data('sort-method', 'asc');
+		} else {
+			this.collection.comparator = function(text){
+				return text.id;
+			};
+			this.collection.sort();
+			$('button#sort-texts-index-id').data('sort-method', 'desc');
+			
+		}
+	},
 
 	
 });
