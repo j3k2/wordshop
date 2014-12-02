@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializejson.min.js
+//= require moment.js
+//= require livestamp.min.js
 //= require bootstrap-sprockets
 //= require tooltip.js
 //= require popover.js

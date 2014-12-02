@@ -10,7 +10,7 @@
 
 <br>
 <em class="byline">posted by 
-	<a href="#users/<%= critique.user().id %>"><%= critique.user().escape('username') %></a> on <%= new Date(critique.get('created_at')).getMonth() + 1 %>-<%= new Date(critique.get('created_at')).getDate() %>-<%= new Date(critique.get('created_at')).getFullYear() %>
+	<a href="#users/<%= critique.user().id %>"><%= critique.user().escape('username') %></a> <span data-livestamp="<%= new Date(critique.escape('created_at')) %>"></span>
 	<% if(critique.user().id == window.currentUser.id){%>
 	<button id="crit-delete" class="btn-default">Delete</button>
 <% } %></em>

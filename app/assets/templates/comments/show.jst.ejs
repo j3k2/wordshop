@@ -1,3 +1,3 @@
 <div class="reply-content"><%= comment.escape('content') %></div>
 
-<small class="byline-small"><em>posted by <a href="#users/<%=comment.user().id%>"><%= comment.user().escape('username') %></a> on <%= new Date(comment.get('created_at')).getMonth() + 1 %>-<%= new Date(comment.get('created_at')).getDate() %>-<%= new Date(comment.get('created_at')).getFullYear() %></em><% if(comment.user().id == window.currentUser.id) { %><a class="delete-small">x</a><% } %></small>
+<small class="byline-small"><em>posted by <a href="#users/<%=comment.user().id%>"><%= comment.user().escape('username') %></a> <span data-livestamp="<%= new Date(comment.escape('created_at')) %>"></span></em><% if(comment.user().id == window.currentUser.id) { %><a class="delete-small">x</a><% } %></small>
