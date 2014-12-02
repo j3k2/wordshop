@@ -34,18 +34,16 @@
 								name="authenticity_token"
 								value="<%= form_authenticity_token %>">	
 
-						<label for="user_username">Username</label>	
-						<input type="text" name="user[username]" id="user_username" class="txti-small">
+						<input type="text" name="user[username]" id="user_username" class="txti-small" placeholder="Username">
 	
-						<label for="user_password">Password</label>	
-						<input type="password" name="user[password]" id="user_password" class="txti-small">
+						<input type="password" name="user[password]" id="user_password" class="txti-small" placeholder="Password">
 						<input type="submit" value="Sign In" class="btn-default">
 					</form>						
 				<% end %>
 			</div>
     </div>
   	</nav>
-	  <div class="container-fluid" style="padding-top:150px;">
+	  <div class="container-fluid" style="padding-top:100px;">
 			<ul>
 			<% if flash[:errors] %>
 				<% flash[:errors].each do |error| %>
@@ -69,9 +67,6 @@
 				$('body').css({"background": "none", "background-color": 'white'});
 				$(function () {
 				  $('[data-toggle="popover"]').popover()
-				});
-				$(function () {
-				  $('[data-toggle="tooltip"]').tooltip()
 				});
 		</script>
 		<% end %>		
