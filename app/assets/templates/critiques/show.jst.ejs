@@ -10,7 +10,8 @@
 
 <br>
 <em class="byline">posted by 
-	<a href="#users/<%= critique.user().id %>"><%= critique.user().escape('username') %></a><% if(critique.user().id == window.currentUser.id){%>
+	<a href="#users/<%= critique.user().id %>"><%= critique.user().escape('username') %></a> on <%= new Date(critique.get('created_at')).getUTCMonth() + 1 %>-<%= new Date(critique.get('created_at')).getUTCDate() %>-<%= new Date(critique.get('created_at')).getUTCFullYear() %>
+	<% if(critique.user().id == window.currentUser.id){%>
 	<button id="crit-delete" class="btn-default">Delete</button>
 <% } %></em>
 	

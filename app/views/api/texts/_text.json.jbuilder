@@ -1,4 +1,4 @@
-json.extract! text, :id, :title, :content, :critiques
+json.extract! text, :id, :title, :content, :critiques, :created_at
 
 json.author text.user.username
 

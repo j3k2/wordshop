@@ -1,4 +1,4 @@
-json.extract! @reply, :id, :content, :user_id, :critique_id, :user
+json.extract! @reply, :id, :content, :user_id, :critique_id, :user, :created_at
 
 json.critique do
 	json.partial! 'api/critiques/critique', critique: @reply.critique
