@@ -13,9 +13,8 @@
  *= require_tree .
  *= require_self
  */
- 
+@import "bootstrap-sprockets"; 
 @import "bootstrap";
-@import "bootstrap-sprockets";
 
 body{
 background-image: url("http://remagez.files.wordpress.com/2014/02/img_3261.jpg");

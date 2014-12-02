@@ -6,7 +6,7 @@
 		
 	<% texts.forEach(function(text){ %>
 		<a href="#texts/<%= text.id %>" class="list-group-item index"><strong><%= text.escape('title') %></strong>
-			<small><em><span data-livestamp="<%= new Date(text.escape('created_at')) %>"></span></em></small>
+			<small><em><span data-livestamp="<%= new Date(text.escape('created_at')).toISOString() %>"></span></em></small>
 			
 			<span class="badge"><%= text.critiques().length %></span>
   <% })%></a>

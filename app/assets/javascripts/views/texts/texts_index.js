@@ -91,12 +91,13 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 			};
 			this.collection.sort();
 			$('button#sort-texts-index-id').data('sort-method', 'asc');
+
 		} else {
 			this.collection.comparator = function(text){
 				return text.id;
 			};
 			this.collection.sort();
-			$('button#sort-texts-index-id').data('sort-method', 'desc');			
+			$('button#sort-texts-index-id').data('sort-method', 'desc');
 		}
 	}
 
