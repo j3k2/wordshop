@@ -28,8 +28,6 @@ Wordshop.Views.ReplyNew = Backbone.View.extend({
 		reply.save({},{
 			success: function(){
 				that.crit.replies().add(reply);
-				var url = "texts/" + that.text.id + "/" + that.crit.id;
-				Backbone.history.navigate(url, {trigger: true});
 				$('button#reply-button').css("visibility", "visible");
 				that.remove();
 			}
