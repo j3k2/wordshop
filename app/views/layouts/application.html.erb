@@ -28,7 +28,7 @@
 					</a>				
 					<%= button_to "Sign Out", session_url, method: :delete, class: 'btn btn-default' %>
 				<% else %>
-					<form action="<%= session_url %>" method="POST" class="navbar-form">
+					<form action="<%= session_url %>" method="POST" class="navbar-form" id="sign-in">
 
 						<input type="hidden"
 								name="authenticity_token"
@@ -44,16 +44,7 @@
     </div>
   	</nav>
 	  <div class="container-fluid" style="padding-top:100px;">
-			<ul>
-			<% if flash[:errors] %>
-				<% flash[:errors].each do |error| %>
-				<div class="alert alert-danger" role="alert">
-				
-					<%= error %>
-				</div>	
-				<% end %>
-			<% end %>
-			</ul>
+			
 	<%= yield %>
 	
 		</div>
@@ -70,6 +61,12 @@
 				});
 		</script>
 		<% end %>		
-
+		<script>
+		$('button#guest').on('click', function(){
+			$('#user_username').val('Guest');
+			$('#user_password').val('password');
+			$('form#sign-in').submit();
+		})
+		</script>
 </body>
 </html>
