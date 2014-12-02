@@ -1,5 +1,9 @@
 	<div class="list-group index">
-		Sort by: <button id="sort-users-texts-id" data-sort-method="asc" class="btn-default">new/old</button>
+		Sort by: <button id="sort-users-texts-crits" data-sort-method="asc" class="btn-default"># of critiques</button>
+<button id="sort-users-texts-title" data-sort-method="asc" class="btn-default">title</button>
+<button id="sort-users-texts-id" data-sort-method="asc" class="btn-default">new/old</button>
+		<br><br>
+		
 	<% texts.forEach(function(text){ %>
 		<a href="#texts/<%= text.id %>" class="list-group-item index"><%= text.escape('title') %> 
 			<span class="badge"><%= text.critiques().length %></span>
