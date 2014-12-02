@@ -14,6 +14,8 @@ Sort by: <button id="sort-users-replies-id" data-sort-method="asc" class="btn-de
 
 <div class="reply-content"><%= reply.escape('content') %></div>
 
+<small class="byline-small"><em>posted on <%= new Date(reply.get('created_at')).getUTCMonth() + 1 %>-<%= new Date(reply.get('created_at')).getUTCDate() %>-<%= new Date(reply.get('created_at')).getUTCFullYear() %></em></small>
+
 </div>	
 
 

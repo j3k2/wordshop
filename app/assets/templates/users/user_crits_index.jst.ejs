@@ -15,5 +15,7 @@ Sort by: <button id="sort-users-crits-id" data-sort-method="asc" class="btn-defa
 	<div id='crit-content'>
 	<%= critique.escape('content') %>
 	</div>
+	
+	<small class="byline-small"><em>posted on <%= new Date(critique.get('created_at')).getUTCMonth() + 1 %>-<%= new Date(critique.get('created_at')).getUTCDate() %>-<%= new Date(critique.get('created_at')).getUTCFullYear() %></em></small>
 </div>	
 <% })%>

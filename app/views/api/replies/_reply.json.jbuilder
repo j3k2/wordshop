@@ -1,4 +1,4 @@
-json.extract! reply, :id, :user_id, :critique_id, :content
+json.extract! reply, :id, :user_id, :critique_id, :content, :created_at
 json.user reply.user
 json.critique reply.critique
 
