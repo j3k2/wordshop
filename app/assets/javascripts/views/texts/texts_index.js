@@ -74,7 +74,7 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 			$('button#sort-texts-index-id').data('sort-method', 'desc');
 			
 		}
-	},
+	}
 
 	
 });

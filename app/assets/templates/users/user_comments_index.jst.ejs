@@ -1,8 +1,8 @@
+Sort by: <button id="sort-users-comments-id" data-sort-method="asc" class="btn-default">new/old</button>
 <% comments.forEach(function(comment){ %>
 	<div class="user-item-show">
-	
-	<%= comment.id %>
-	on	<a href="#texts/<%= comment.text().id %>"><%= comment.text().escape('title') %></a>
+	<p class="byline">
+	<a href="#texts/<%= comment.text().id %>"><%= comment.text().escape('title') %></a> by <a href="#/users/<%= comment.text().get('author_id') %>"><%= comment.text().escape('author') %></a> </p>
 
 <div class="reply-content"><%= comment.escape('content') %></div>
 </div>

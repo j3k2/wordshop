@@ -1,12 +1,11 @@
-<% crits.forEach(function(critique){ %>
+Sort by: <button id="sort-users-crits-id" data-sort-method="asc" class="btn-default">new/old</button>
+			<% crits.forEach(function(critique){ %>
+
 <div class="user-item-show">
-	critique id: <%= critique.id %>, end index: <%= critique.get('end_idx') %>
+	<p class="byline">
+	<a href="#texts/<%= critique.text().id %>"><%= critique.text().escape('title') %></a> by <a href="#/users/<%= critique.text().get('author_id') %>"><%= critique.text().escape('author') %></a> </p>
 
-	
-	
-	on	<a href="#texts/<%= critique.text().id %>"><%= critique.text().escape('title') %></a>
-
-	<p class="hilite"><%= _.unescape(critique.text().escape("content")).slice(
+	<p class="hilite quote"><%= _.unescape(critique.text().escape("content")).slice(
 				critique.get('start_idx'),
 				critique.get('end_idx') + 1
 	) %></p>

@@ -6,7 +6,7 @@ Wordshop.Views.UserCritsIndex = Backbone.View.extend({
 	
 	
 	initialize: function() {
-		this.listenTo(this.collection, 'add remove sync', this.render);
+		this.listenTo(this.collection, 'add remove sync sort', this.render);
 		
 		this.collection.comparator = function(crit){
 			return -crit.id;
@@ -22,6 +22,27 @@ Wordshop.Views.UserCritsIndex = Backbone.View.extend({
 		this.$el.html(content);
 		
 		return this;
+	},
+	
+	events: {
+		'click button#sort-users-crits-id':'sortIndexId',
+	},
+	
+	sortIndexId: function(){
+		if($('button#sort-users-crits-id').data('sort-method') === 'desc'){
+			this.collection.comparator = function(text){
+				return -text.id;
+			};
+			this.collection.sort();
+			$('button#sort-users-crits-id').data('sort-method', 'asc');
+		} else {
+			this.collection.comparator = function(text){
+				return text.id;
+			};
+			this.collection.sort();
+			$('button#sort-users-crits-id').data('sort-method', 'desc');
+			
+		}
 	}
 	
 });
