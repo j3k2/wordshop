@@ -2,10 +2,10 @@
 
 <ul class="nav nav-tabs">
   <!-- <li role="presentation" class="active" id="profile-tab"><a href="#">Profile</a></li> -->
-  <li role="presentation" id="texts-tab" class="active"><a href="#">Texts</a></li>
-  <li role="presentation" id="critiques-tab"><a href="#">Critiques</a></li>
-  <li role="presentation" id="replies-tab"><a href="#">Replies</a></li>
-  <li role="presentation" id="comments-tab"><a href="#">Comments</a></li>
+  <li role="presentation" id="texts-tab" class="active"><a href="#">Texts <span class="badge user-tab"><%= user.texts().length %></span></a></li>
+  <li role="presentation" id="critiques-tab"><a href="#">Critiques <span class="badge user-tab"><%= user.critiques().length %></span></a></li>
+  <li role="presentation" id="replies-tab"><a href="#">Replies <span class="badge user-tab"><%= user.replies().length %></span></a></li>
+  <li role="presentation" id="comments-tab"><a href="#">Comments  <span class="badge user-tab"><%= user.comments().length %></span></a></li>
 	
 </ul>
 <div id="user-items-list">
