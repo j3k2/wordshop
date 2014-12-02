@@ -52,7 +52,7 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 			$('button#sort-texts-index-title').data('sort-method', 'asc');
 		} else {
 			this.collection.comparator = function(text){
-				return text.get('title');
+				return text.get('title').toLowerCase();
 			};
 			this.collection.sort();
 			$('button#sort-texts-index-title').data('sort-method', 'desc');
@@ -76,7 +76,7 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 			$('button#sort-texts-index-author').data('sort-method', 'asc');
 		} else {
 			this.collection.comparator = function(text){
-				return text.user().get('username');
+				return text.user().get('username').toLowerCase();
 			};
 			this.collection.sort();
 			$('button#sort-texts-index-author').data('sort-method', 'desc');

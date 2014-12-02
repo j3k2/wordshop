@@ -63,7 +63,7 @@ Wordshop.Views.UserTextsIndex = Backbone.View.extend({
 			$('button#sort-users-texts-title').data('sort-method', 'asc');
 		} else {
 			this.collection.comparator = function(text){
-				return text.get('title');
+				return text.get('title').toLowerCase();
 			};
 			this.collection.sort();
 			$('button#sort-users-texts-title').data('sort-method', 'desc');

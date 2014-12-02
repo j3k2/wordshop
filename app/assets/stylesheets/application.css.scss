@@ -186,7 +186,9 @@ word-wrap:normal;
 }
 
 textarea#text-content{
-word-wrap:normal;
+white-space: pre;
+word-wrap: normal;
+overflow-x: scroll;
 }
 
 #text-sidebar{
