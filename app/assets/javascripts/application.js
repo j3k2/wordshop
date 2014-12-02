@@ -15,6 +15,7 @@
 //= require jquery.serializejson.min.js
 //= require moment.js
 //= require bootstrap-sprockets
+//= require bootbox.min.js
 //= require tooltip.js
 //= require popover.js
 //= require underscore

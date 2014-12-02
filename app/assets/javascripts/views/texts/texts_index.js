@@ -56,6 +56,8 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 			};
 			this.collection.sort();
 			$('button#sort-texts-index-title').data('sort-method', 'desc');
+			// $('span.title-icon').removeClass('glyphicon-sort-by-alphabet');
+			// $('span.title-icon').addClass('glyphicon glyphicon-sort-by-alphabet-alt');
 			
 		}
 	},
@@ -80,6 +82,8 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 			};
 			this.collection.sort();
 			$('button#sort-texts-index-author').data('sort-method', 'desc');
+			// $('span.author-icon').removeClass('glyphicon-sort-by-alphabet');
+			// $('span.author-icon').addClass('glyphicon glyphicon-sort-by-alphabet-alt');
 			
 		}
 	},

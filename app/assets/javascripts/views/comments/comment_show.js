@@ -17,11 +17,12 @@ Wordshop.Views.CommentShow = Backbone.View.extend({
 	},
 	
 	deleteComment: function(){
-		var r = confirm('Are you sure you want to delete this comment?');
-		if(r){
-			var that = this;
-			this.model.destroy();
-		}
+		var that = this;
+		bootbox.confirm('Are you sure you want to delete this comment?', function(result){
+			if(result){
+				that.model.destroy();
+			}
+		});
 	}
 
 });

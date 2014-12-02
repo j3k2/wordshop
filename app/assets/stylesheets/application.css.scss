@@ -45,15 +45,21 @@ background-repeat:no-repeat;
 
 
 
-.btn-default{
+.btn-default, .btn-primary{
 	background:cyan;
 	border:none;
   border-radius: 5px;
 	margin:2px;
+	color: black;
 }
 
-.btn-default:hover{
+.btn-default:hover, .btn-primary:hover{
 	background:white;
+	color:black;
+}
+
+.btn-primary:focus{
+	background:cyan;
 }
 
 

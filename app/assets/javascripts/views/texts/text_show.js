@@ -108,23 +108,28 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 	},
 	
 	deleteText: function(){
-		var r = confirm('Are you sure you want to delete this text?');
-		if(r){
-			this.model.destroy({
-				success: function(){
-					Backbone.history.navigate("", {trigger: true});
-				}
-			});
-		}
+		var that = this;
+		bootbox.confirm('Are you sure you want to delete this text?', function(result){
+			if(result){
+				that.model.destroy({
+					success: function(){
+						Backbone.history.navigate("", {trigger: true});
+					}
+				});
+			}
+		});
 	},
 	
 	addComment: function(comment){
 		var that = this;
-		
-		var commentShowView = new Wordshop.Views.CommentShow({
-			model: comment
+		comment.fetch({
+			success: function(){
+				var commentShowView = new Wordshop.Views.CommentShow({
+					model: comment
+				});
+				that.addSubview("#text-comments", commentShowView);
+			}
 		});
-		this.addSubview("#text-comments", commentShowView);
 	},
 	
   removeComment: function (comment) {
