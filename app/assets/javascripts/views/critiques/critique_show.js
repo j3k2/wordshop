@@ -12,6 +12,10 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 		this.text = options.text;
 		
 		var that = this;
+		
+		this.model.replies().comparator = 'id',
+		
+		
 		this.model.replies().forEach(function(reply){
 			that.addReply(reply);
 		});

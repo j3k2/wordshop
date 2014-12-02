@@ -9,6 +9,9 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model.comments(), "remove", this.removeComment);
 		
 		var that = this;
+		
+		this.model.comments().comparator = 'id';
+		
 		this.model.comments().forEach(function(comment){
 			that.addComment(comment);
 		});

@@ -4,6 +4,11 @@ Wordshop.Models.Text = Backbone.Model.extend({
 	annotatedContent: function(){
 		var textContent = this.attributes.content;
 		var text = this;
+		
+		this.critiques().comparator = function(crit){
+			return -crit.get('end_idx');
+		};
+		
 		this.critiques().models.forEach(function(crit){
 			var endIdx = crit.attributes.end_idx;
 			var startIdx = crit.attributes.start_idx;
