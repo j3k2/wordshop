@@ -17,11 +17,12 @@ Wordshop.Views.ReplyShow = Backbone.View.extend({
 	},
 	
 	deleteReply: function(){
-		var r = confirm('Are you sure you want to delete this reply?');
-		if(r){
-			var that = this;
-			this.model.destroy();
-		}
+		var that = this;
+		bootbox.confirm('Are you sure you want to delete this reply?', function(result){
+			if(result){
+				that.model.destroy();
+			}
+		});
 	}
 
 });

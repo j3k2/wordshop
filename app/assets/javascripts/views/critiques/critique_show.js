@@ -8,13 +8,11 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
     this.listenTo(this.model.replies(), "add", this.addReply);
     this.listenTo(this.model.replies(), "remove", this.removeReply);
 		
-		
 		this.text = options.text;
 		
 		var that = this;
 		
-		this.model.replies().comparator = 'id',
-		
+		this.model.replies().comparator = 'id';
 		
 		this.model.replies().forEach(function(reply){
 			that.addReply(reply);
@@ -64,17 +62,18 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 	},
 	
 	deleteCrit: function(){
-		var r = confirm('Are you sure you want to delete this critique? All of its replies will also be deleted!');
-		if(r){
-			var that = this;
-			this.model.destroy({
-				success: function(){
-					that.text.trigger('critiqueChanged');
-					that.remove();
-				}
-			});
-		}
-
+		var that = this;
+		bootbox.confirm('Are you sure you want to delete this critique? All of its replies will also be deleted!', function(result){
+			var view = that;
+			if(result){
+				that.model.destroy({
+					success: function(){
+						view.text.trigger('critiqueChanged');
+						view.remove();
+					}
+				});
+			}
+		});
 	}
 	
 	

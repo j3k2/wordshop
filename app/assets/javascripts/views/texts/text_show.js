@@ -71,7 +71,7 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 					selRange.endContainer.previousSibling.tagName === "A"
 					)
  				){
-					alert("Sorry, overlapping annotations are not allowed.");
+					bootbox.alert("Sorry, overlapping annotations are not allowed.");
 				} else {
 					var previousCrit = selRange.startContainer.previousSibling;
 					if(previousCrit){
