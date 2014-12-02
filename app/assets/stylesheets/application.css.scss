@@ -182,6 +182,11 @@ background:none;
 border: 1px dashed grey;
 padding: 5px;
 text-align: left;
+word-wrap:normal;
+}
+
+textarea#text-content{
+word-wrap:normal;
 }
 
 #text-sidebar{
@@ -239,7 +244,7 @@ div.about{
 	
 }
 .no-sidebar{
-width:600px;
+width:700px;
 margin-left:auto;
 margin-right:auto;
 }
