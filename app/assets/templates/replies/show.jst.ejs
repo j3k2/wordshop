@@ -1,3 +1,3 @@
 <div class="reply-content"><%= reply.escape('content') %></div>
 
-<small class="byline-small"><em>posted by <a href="#users/<%=reply.user().id%>"><%= reply.user().escape('username') %></a> <span data-livestamp="<%= new Date(reply.escape('created_at')) %>"></span></em><% if(reply.user().id == window.currentUser.id) { %><a class="delete-small">x</a><% } %></small>
+<small class="byline-small"><em>posted by <a href="#users/<%=reply.user().id%>"><%= reply.escape('username') %></a> <span data-livestamp="<%= new Date(reply.escape('created_at')) %>"></span></em><% if(reply.user().id == window.currentUser.id) { %><a class="delete-small">x</a><% } %></small>

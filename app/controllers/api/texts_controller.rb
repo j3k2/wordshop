@@ -1,6 +1,6 @@
 class Api::TextsController < ApplicationController
   def index
-    @texts = Text.all
+    @texts = Text.includes(:critiques)
     render :index
   end
   
