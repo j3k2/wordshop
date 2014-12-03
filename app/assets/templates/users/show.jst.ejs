@@ -4,7 +4,9 @@
 
 <% if(window.currentUser.id == user.id){ %>
 	<button class="btn-default" id="upload-img">Upload avatar</button>
-	<button class="btn-default" id="delete-img">Delete avatar</button>
+		<% if(!user.escape('filepicker_url') == "") {%>
+			<button class="btn-default" id="delete-img">Delete avatar</button>
+		<% } %>
 <% } %>
 
 <h2><%= user.escape('username') %></h2>
