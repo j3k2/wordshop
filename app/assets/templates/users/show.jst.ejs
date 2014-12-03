@@ -1,7 +1,8 @@
-<img src="<%= user.escape('filepicker_url')%>" width="100" height="100" class="img-circle"></img> 
+<img src="<%= user.escape('filepicker_url')%>" width="160" height="160" class="img-circle"></img> 
 
 <% if(window.currentUser.id == user.id){ %>
 	<button class="btn-default" id="upload-img">Upload avatar</button>
+	<button class="btn-default" id="delete-img">Delete avatar</button>
 <% } %>
 
 <h2><%= user.escape('username') %></h2>

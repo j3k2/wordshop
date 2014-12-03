@@ -51,7 +51,7 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 	},
 	
 	setSidebarPosition: function(event){
-		$('#text-sidebar').css("top", event.offsetY + 80);
+		$('#text-sidebar').css("top", event.offsetY + 140);
 	},
 	
 	initiateSelection: function(event){

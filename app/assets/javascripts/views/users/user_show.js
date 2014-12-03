@@ -18,7 +18,8 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 		'click #critiques-tab': 'showCritiques',
 		'click #replies-tab': 'showReplies',
 		'click #comments-tab': 'showComments',
-		'click #upload-img':'upload'
+		'click #upload-img':'upload',
+		'click #delete-img':'deleteAvatar'
 	},
 	
 	tagName: 'div',
@@ -135,6 +136,18 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 	      }
 	    });
 	  });
-	}
-
+	},
+	
+	deleteAvatar: function(){
+		var that = this;
+	  var user = new Wordshop.Models.User({
+      filepicker_url: "",
+			id: window.currentUser.id
+	  });	 
+	  user.save({}, {
+      success: function(){
+	      that.render();
+	    }
+	  });
+	},
 });
