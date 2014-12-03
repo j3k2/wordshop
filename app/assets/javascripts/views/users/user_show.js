@@ -5,18 +5,6 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 	initialize: function(){
 		this.listenTo(this.model, 'sync', this.render);
 		
-		// var UserTextsIndexView = new Wordshop.Views.UserTextsIndex({
-		// 	collection: this.model.texts()
-		// });
-		//
-		// this.addSubview('#user-items-list', UserTextsIndexView);
-		//
-		// var UserCritsIndexView = new Wordshop.Views.UserCritsIndex({
-		// 	collection: this.model.critiques()
-		// });
-		//
-		// this.addSubview('#user-items-list', UserCritsIndexView);
-		
 		var UserTextsIndexView = new Wordshop.Views.UserTextsIndex({
 			collection: this.model.texts()
 		});
@@ -29,7 +17,8 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 		'click #texts-tab':'showTexts',
 		'click #critiques-tab': 'showCritiques',
 		'click #replies-tab': 'showReplies',
-		'click #comments-tab': 'showComments'
+		'click #comments-tab': 'showComments',
+		'click #upload-img':'upload'
 	},
 	
 	tagName: 'div',
@@ -130,6 +119,22 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 		});
 
 		this.addSubview('#user-items-list', UserCommentsIndexView);
+	},
+	
+	upload: function () {
+		var that = this;
+	  filepicker.pick(function(blob) {
+	    var user = new Wordshop.Models.User({
+	      filepicker_url: blob.url,
+				id: window.currentUser.id
+	    });
+	    user.save({}, {
+	      success: function () {
+					debugger
+	        that.render();
+	      }
+	    });
+	  });
 	}
 
 });

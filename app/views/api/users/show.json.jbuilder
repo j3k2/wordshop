@@ -1,4 +1,4 @@
-json.extract! @user, :username
+json.extract! @user, :username, :filepicker_url
 json.texts do
 	json.array! @user.texts do |text|
 		json.partial! 'api/texts/text', text: text

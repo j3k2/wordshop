@@ -20,6 +20,10 @@ Wordshop.Views.TextNew = Backbone.View.extend({
 			bootbox.alert('Cannot submit an empty text.');
 			return;
 		}
+		if(params.content.indexOf('<') !== -1 || params.content.indexOf('<') !== -1){
+			bootbox.alert('Sorry, texts cannot contain "<" or ">".');
+			return;
+		}
 		if(!params.title){
 			bootbox.alert('Cannot submit a text with no title.');
 			return;

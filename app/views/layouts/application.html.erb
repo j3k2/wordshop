@@ -60,6 +60,7 @@
 		<div id="footer"></div>
 		
 		<% if current_user %>
+		<%= filepicker_js_include_tag %>			
 		<script type="text/javascript">
 		    window.currentUser = {
 		        id : "<%= current_user.id %>"
@@ -68,8 +69,9 @@
 				$(function () {
 				  $('[data-toggle="popover"]').popover()
 				});
+			  filepicker.setKey("<%= ENV['FILEPICKER_API_KEY'] %>");
 		</script>
-		<% else %>	
+		<% else %>
 		<script>
 			$('button#guest').on('click', function(){
 				$('#user_username').val('Guest');
