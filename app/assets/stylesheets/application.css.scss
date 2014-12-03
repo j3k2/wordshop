@@ -131,22 +131,6 @@ form.button_to{
   border-radius: 5px;
 }
 
-/*critique show*/
-.crit-show{
-	border: 1px dashed grey;
-  border-radius: 5px;
-	width: 100%;
-	word-wrap: break-word;
-	padding: 5px;
-}
-
-div#crit-content{
-background:none;
-border:none;
-padding:0px;
-white-space:pre-line;
-padding-bottom:5px;
-}
 
 /*shared by texts, crits, comments, replies*/
 .byline{
@@ -241,6 +225,24 @@ textarea#text-content{
 	margin-right:5px;
 }
 
+/*critique show*/
+.crit-show{
+	border: 1px dashed grey;
+  border-radius: 5px;
+	width: 100%;
+	word-wrap: break-word;
+	padding: 5px;
+}
+
+div#crit-content{
+	background:none;
+	border:none;
+	padding:0px;
+	white-space:pre-line;
+	padding-bottom:5px;
+	margin:5px;
+}
+
 /*Reply Show*/
 .reply-show{
 	border: 1px solid lightgrey;
@@ -251,7 +253,7 @@ textarea#text-content{
 
 .reply-content{
 	padding:2px;
-	margin-bottom:5px;
+	margin:5px;
 }
 
 /*Splash page*/
