@@ -18,6 +18,7 @@
 //= require bootbox.min.js
 //= require tooltip.js
 //= require popover.js
+//= require list.min.js
 //= require underscore
 //= require backbone
 //= require wordshop

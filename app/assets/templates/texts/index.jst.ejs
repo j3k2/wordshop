@@ -5,13 +5,27 @@ Sort by:
 <button id="sort-texts-index-author" data-sort-method="asc" class="btn-default"><!-- <span class="author-icon glyphicon glyphicon-sort-by-alphabet"></span>   -->author</button>
 <button id="sort-texts-index-id" data-sort-method="asc" class="btn-default">new/old</button>
 
-<br><br>
-	<div class="list-group index">
+<div id="texts">
+	<br>
+	<input class="search txti" placeholder="Search by title or author" />
+	<br><br>
+	
+	<ul class="list-group index list">
 	<% texts.forEach(function(text){ %>
-		<a href="#texts/<%= text.id %>" class="list-group-item index"><strong><%= text.escape('title') %></strong> by <%= text.user().escape('username') %> 
+		
+		<a href="#texts/<%= text.id %>" class="list-group-item index"><strong class="title"><%= text.escape('title') %></strong> by <span class="author"><%= text.user().escape('username') %></span>
 			<small><em><%= moment(text.escape('created_at')).fromNow() %></em></small>
 			
-			<span class="badge"><%= text.critiques().length %></span>
-  <% })%></a>
+			<span class="badge"><%= text.critiques().length %></span></a>
 
+  <% })%>
+</ul>
 </div>
+
+<script>
+var options = {
+  valueNames: [ 'title', 'author' ]
+};
+
+var textList = new List('texts', options);
+</script>
