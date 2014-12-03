@@ -16,6 +16,14 @@ Wordshop.Views.TextNew = Backbone.View.extend({
 	submit: function(event){
 		event.preventDefault();
 		var params = $(event.currentTarget).serializeJSON();
+		if(!params.content){
+			bootbox.alert('Cannot submit an empty text.');
+			return;
+		}
+		if(!params.title){
+			bootbox.alert('Cannot submit a text with no title.');
+			return;
+		}
 		var newText = new Wordshop.Models.Text();
 		
 		newText.set(params);

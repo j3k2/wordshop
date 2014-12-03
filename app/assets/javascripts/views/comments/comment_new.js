@@ -20,6 +20,10 @@ Wordshop.Views.CommentNew = Backbone.View.extend({
 	submit: function(event){
 		event.preventDefault();
 		var params = $(event.target).serializeJSON();
+		if(!params.content){
+			bootbox.alert('Cannot submit an empty comment.');
+			return;
+		}
 		var comment = new Wordshop.Models.Comment(params);
 		var that = this;
 		comment.save({},{

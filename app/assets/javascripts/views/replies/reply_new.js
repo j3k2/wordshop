@@ -24,8 +24,8 @@ Wordshop.Views.ReplyNew = Backbone.View.extend({
 		event.preventDefault();
 		var params = $(event.target).serializeJSON();
 		if(!params.content){
-			bootbox.alert('Cannot submit an empty reply');
-			return
+			bootbox.alert('Cannot submit an empty reply.');
+			return;
 		}
 		var reply = new Wordshop.Models.Reply(params);
 		var that = this;

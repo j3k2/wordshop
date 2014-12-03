@@ -26,6 +26,10 @@ Wordshop.Views.CritiqueNew = Backbone.View.extend({
 	submit: function(event){
 		event.preventDefault();
 		var params = $(event.currentTarget).serializeJSON();
+		if(!params.content){
+			bootbox.alert('Cannot submit an empty critique.');
+			return;
+		}
 		this.model.set(params);
 		var that = this;
 		Wordshop.Collections.crits.create(this.model, {
