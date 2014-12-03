@@ -16,11 +16,34 @@
 @import "bootstrap-sprockets"; 
 @import "bootstrap";
 
+/*site-wide*/
 body{
-background-image: url("http://remagez.files.wordpress.com/2014/02/img_3261.jpg");
-background-size:cover;
-background-repeat:no-repeat;
+	background-image: 								url("http://remagez.files.wordpress.com/2014/02/img_3261.jpg");
+	background-size:cover;
+	background-repeat:no-repeat;
+	font-family: 'Courier New', monospace;
 }
+
+a{
+	color:black;
+}
+
+a:hover{
+	color: cyan;
+}
+
+.no-sidebar{
+width:700px;
+margin-left:auto;
+margin-right:auto;
+}
+
+#footer{
+height:100px;
+width:100%;
+}
+
+/*navbar*/
 .navbar{
 	height: 80px;
 	padding: 8px;
@@ -36,6 +59,10 @@ background-repeat:no-repeat;
 	padding-top:25px;	
 }
 
+.navbar-form{
+background:cyan;
+}
+
 .btngrp{
 	padding:10px;
 	padding-top: 15px;
@@ -43,8 +70,11 @@ background-repeat:no-repeat;
 	background: cyan;
 }
 
+form.button_to{
+	display: inline-block;
+}
 
-
+/*buttons*/
 .btn-default, .btn-primary{
 	background:cyan;
 	border:none;
@@ -62,7 +92,7 @@ background-repeat:no-repeat;
 	background:cyan;
 }
 
-
+/*input boxes*/
 .txta{
 	resize: none;
 	width: 100%;
@@ -100,78 +130,14 @@ background-repeat:no-repeat;
 	border: 1px solid black;
   border-radius: 5px;
 }
-form.button_to{
-	display: inline-block;
-}
 
-.crit{
-	border: 1px solid black;
-}
-
+/*critique show*/
 .crit-show{
 	border: 1px dashed grey;
   border-radius: 5px;
-	
 	width: 100%;
 	word-wrap: break-word;
 	padding: 5px;
-}
-
-.byline{
-	background: lightgrey;
-	display:block;
-	margin-top: 10px;
-	height:30px;
-	padding-top:5px;
-	padding-left: 5px;
-}
-
-
-.byline-small{
-	display:block;
-	background:whitesmoke;
-	height:15px;
-	padding-left:5px;
-	padding-right:5px;
-}
-.hilite{
-	background:cyan;
-	margin-top: 0px;
-	
-}
-
-.navbar a{
-	text-decoration: none;
-}
-
-.navbar a:hover{
-	color: black;
-}
-a.hilite:hover{
-	background: grey;
-	color:white;
-	text-decoration:none;
-}
-
-a{
-	color:black;
-}
-
-pre a{
-	color: black;
-}
-
-a:hover{
-	color: cyan;
-}
-
-a.index:hover{
-	color: grey;
-	background:cyan;
-}
-
-body{
-	font-family: 'Courier New', monospace;
 }
 
 div#crit-content{
@@ -182,39 +148,100 @@ white-space:pre-line;
 padding-bottom:5px;
 }
 
-pre#text-content{
-margin-top: 10px;
-background:none;
-border: 1px dashed grey;
-padding: 5px;
-text-align: left;
-word-wrap:normal;
+/*shared by texts, crits, comments, replies*/
+.byline{
+	background: lightgrey;
+	display:block;
+	margin-top: 10px;
+	height:30px;
+	padding-top:5px;
+	padding-left: 5px;
 }
 
-textarea#text-content{
-white-space: pre;
-word-wrap: normal;
+.byline-small{
+	display:block;
+	background:whitesmoke;
+	height:15px;
+	padding-left:5px;
+	padding-right:5px;
 }
 
-#text-sidebar{
-background:white;
-position:absolute;
-right:0px;
-padding:0px;
+.hilite{
+	background:cyan;
+	margin-top: 0px;	
 }
 
+/*annotation*/
+a.hilite:hover{
+	background: grey;
+	color:white;
+	text-decoration:none;
+}
+
+/*TextsIndex and UserTextsIndex*/
+a.index:hover{
+	color: grey;
+	background:cyan;
+}
+
+/*TextsIndex*/
 .badge{
 margin-left:25px;
 margin-right:5px;
 }
+
+/*UserShow*/
 .user-tab, .badge{
 margin-left:0px;
 margin-right:0px;
 }
-#crit-delete, #reply-delete, #comment-delete{
-float: right;
-margin-right:5px;
+
+.user-item-show{
+	margin:5px;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	padding:5px;
 }
+
+.tab-show{
+	margin:20px;
+}
+
+.quote{
+	padding-left:5px;
+}
+
+/*TextShow*/
+pre#text-content{
+	margin-top: 10px;
+	background:none;
+	border: 1px dashed grey;
+	padding: 5px;
+	text-align: left;
+	word-wrap:normal;
+}
+
+#text-sidebar{
+	background:white;
+	position:absolute;
+	right:0px;
+	padding:0px;
+}
+
+/*TextNew*/
+textarea#text-content{
+	white-space: pre;
+	word-wrap: normal;
+}
+
+
+/*Delete Icons*/
+#crit-delete, #reply-delete, #comment-delete{
+	float: right;
+	margin-right:5px;
+}
+
+/*Reply Show*/
 .reply-show{
 	border: 1px solid lightgrey;
 	margin:2px;
@@ -222,17 +249,16 @@ margin-right:5px;
   border-radius: 5px;
 }
 
-form.user-form{
-width: 200px;
-}
-#footer{
-height:100px;
-width:100%;
-}
 .reply-content{
 	padding:2px;
 	margin-bottom:5px;
 }
+
+/*Splash page*/
+form.user-form{
+	width: 200px;
+}
+
 div.splash-wrapper{
 	background:white;
   width:max-content;
@@ -241,32 +267,11 @@ div.splash-wrapper{
 	opacity:0.9;
 
 }
+
 div.about{
 	background:white;
 	border-radius:5px;
 	padding:30px;
 	opacity:0.9;
 	
-}
-.no-sidebar{
-width:700px;
-margin-left:auto;
-margin-right:auto;
-}
-.navbar-form{
-background:cyan;
-}
-
-
-.user-item-show{
-	margin:5px;
-	border: 1px solid lightgrey;
-	border-radius: 5px;
-	padding:5px;
-}
-.tab-show{
-	margin:20px;
-}
-.quote{
-	padding-left:5px;
 }

@@ -44,7 +44,16 @@
     </div>
   	</nav>
 	  <div class="container-fluid" style="padding-top:100px;">
-			
+			<ul>
+			<% if flash[:errors] %>
+				<% flash[:errors].each do |error| %>
+				<div class="alert alert-danger" role="alert">
+	
+					<%= error %>
+				</div>	
+				<% end %>
+			<% end %>
+			</ul>
 	<%= yield %>
 	
 		</div>
@@ -60,13 +69,15 @@
 				  $('[data-toggle="popover"]').popover()
 				});
 		</script>
-		<% end %>		
+		<% else %>	
 		<script>
-		$('button#guest').on('click', function(){
-			$('#user_username').val('Guest');
-			$('#user_password').val('password');
-			$('form#sign-in').submit();
+			$('button#guest').on('click', function(){
+				$('#user_username').val('Guest');
+				$('#user_password').val('password');
+				$('form#sign-in').submit();
 		});
-		</script>
+		</script>	
+		<% end %>		
+
 </body>
 </html>
