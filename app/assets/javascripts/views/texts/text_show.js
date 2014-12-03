@@ -20,6 +20,7 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 	},
 	
 	events: {
+		'mousedown pre#text-content':'initiateSelection',
 		'mouseup pre#text-content':'getSelectedText',
 		'click pre#text-content > a':'renderCritique',
 		'click button#text-delete': 'deleteText',
@@ -52,10 +53,15 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 	setSidebarPosition: function(event){
 		$('#text-sidebar').css("top", event.offsetY + 80);
 	},
+	
+	initiateSelection: function(event){
+		this.selectionStarted = true;
+	},
+	
 	getSelectedText: function(event){
 		var sel = window.getSelection();
 		var selString = sel.toString();
-		if(selString){
+		if(selString && this.selectionStarted){
 			this.setSidebarPosition(event);
 			var selRange = sel.getRangeAt(0);
 			var startIdx = 0;
@@ -86,6 +92,7 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 				this.renderCritiqueNew(selString, startIdx, endIdx);
 			}  	
 		}
+		this.selectionStarted = false;
 	},
 	
 	render: function(){
