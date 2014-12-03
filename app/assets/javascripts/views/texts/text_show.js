@@ -51,7 +51,11 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 	},
 	
 	setSidebarPosition: function(event){
-		$('#text-sidebar').css("top", event.offsetY + 140);
+		if(!this.model.user().get('filepicker_url') == "") {
+			$('#text-sidebar').css("top", event.offsetY + 140);
+		} else {
+			$('#text-sidebar').css("top", event.offsetY + 80);
+		}
 	},
 	
 	initiateSelection: function(event){
