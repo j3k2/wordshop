@@ -18,21 +18,15 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 		'click button#sort-texts-index-title':'sortIndexTitle',
 		'click button#sort-texts-index-author':'sortIndexAuthor',
 		'click button#sort-texts-index-id':'sortIndexId',
-		// 'keyup input#filter-texts': 'filterTexts',
-		'submit form#filter-texts': 'filterTextsButton'
+		'keyup input#filter-texts-input': 'filterTexts'
 		
 	},
 
-	// filterTexts: function(event){
-	// 	var results = this.collection.where({username: event.target.value});
-	// 		this.collection.set(results);
-	// },
-	
-	filterTextsButton: function(event){
-		event.preventDefault();
-		debugger
-		var results = this.collection.where({username: 'charles_bukowski'});
-		this.collection.set(results);
+	filterTexts: function(event){
+		var results = this.collection.where({username: event.target.value});
+		if(results.length !== 0){
+			this.collection.set(results);
+		}
 	},
 
 	sortIndexCrits: function(){
