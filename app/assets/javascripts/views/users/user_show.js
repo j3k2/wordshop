@@ -3,7 +3,7 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
   template: JST['users/show'],
 	
 	initialize: function(){
-		this.listenTo(this.model, 'sync imgChanged', this.render);
+		this.listenTo(this.model, 'sync', this.render);
 		
 		var UserTextsIndexView = new Wordshop.Views.UserTextsIndex({
 			collection: this.model.texts()
@@ -122,32 +122,30 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 		this.addSubview('#user-items-list', UserCommentsIndexView);
 	},
 	
-	uploadAvatar: function () {
+	uploadAvatar: function(){
 		var that = this;
 	  filepicker.pick(function(blob) {
-	    var user = new Wordshop.Models.User({
-	      filepicker_url: blob.url,
-				id: window.currentUser.id
+		  that.model.set({
+		    filepicker_url: blob.url
 	    });
-	    user.save({}, {
-	      success: function () {
-					debugger
-	        that.render();
-	      }
-	    });
-	  });
+			that.model.save({}, {
+				success: function(){
+					that.render();
+				}
+			})
+		});
 	},
 	
 	deleteAvatar: function(){
 		var that = this;
-	  var user = new Wordshop.Models.User({
-      filepicker_url: "",
-			id: window.currentUser.id
-	  });	 
-	  user.save({}, {
-      success: function(){
-	      that.model.trigger('imgChanged');
-	    }
+	  this.model.set({
+	  	filepicker_url: ""
 	  });
+		
+		this.model.save({}, {
+			success: function(){
+				that.render();
+			}
+		});
 	},
 });
