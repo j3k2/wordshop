@@ -18,7 +18,7 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 		'click #critiques-tab': 'showCritiques',
 		'click #replies-tab': 'showReplies',
 		'click #comments-tab': 'showComments',
-		'click #upload-img':'upload',
+		'click #upload-img':'uploadAvatar',
 		'click #delete-img':'deleteAvatar'
 	},
 	
@@ -122,7 +122,7 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 		this.addSubview('#user-items-list', UserCommentsIndexView);
 	},
 	
-	upload: function () {
+	uploadAvatar: function () {
 		var that = this;
 	  filepicker.pick(function(blob) {
 	    var user = new Wordshop.Models.User({
