@@ -1,4 +1,6 @@
+<% if(!user.escape('filepicker_url') == "") {%>
 <img src="<%= user.escape('filepicker_url')%>" width="160" height="160" class="img-circle"></img> 
+<% } %>
 
 <% if(window.currentUser.id == user.id){ %>
 	<button class="btn-default" id="upload-img">Upload avatar</button>
