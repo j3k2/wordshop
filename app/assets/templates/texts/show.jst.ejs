@@ -1,5 +1,5 @@
 <h2><%= text.escape('title') %></h2>
-by <img src="<%= text.user().escape('filepicker_url') %>" width="100" height="100" class="img-circle"></img>
+by <a href="#/users/<%= text.user().id %>"><img src="<%= text.user().escape('filepicker_url') %>" width="100" height="100" class="img-circle"></img></a>
 <a href="#/users/<%= text.user().id %>">
 	<%= text.user().escape('username') %></a>
 	<small><em><%= moment(text.escape('created_at')).fromNow() %></span></em></small>
