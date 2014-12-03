@@ -5,7 +5,7 @@ Wordshop.Views.CommentShow = Backbone.View.extend({
 	className: 'reply-show',
 	
 	events: {
-		'click a.delete-small':'deleteComment',
+		'click span#comment-delete':'deleteComment',
 	},
 	
 	render: function(){

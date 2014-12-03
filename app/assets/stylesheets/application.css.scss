@@ -75,6 +75,7 @@ background-repeat:no-repeat;
 }
 
 .txta-small{
+	margin-top: 5px;
 	resize: none;
 	width: 100%;
 	height: 100px;
@@ -210,11 +211,9 @@ margin-right:5px;
 margin-left:0px;
 margin-right:0px;
 }
-#crit-delete{
+#crit-delete, #reply-delete, #comment-delete{
 float: right;
-position:relative;
 margin-right:5px;
-bottom:5px;
 }
 .reply-show{
 	border: 1px solid lightgrey;
@@ -258,9 +257,7 @@ margin-right:auto;
 background:cyan;
 }
 
-.delete-small{
-float:right;
-}
+
 .user-item-show{
 	margin:5px;
 	border: 1px solid lightgrey;

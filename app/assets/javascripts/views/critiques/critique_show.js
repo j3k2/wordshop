@@ -20,7 +20,7 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 	},
 	
 	events: {
-		'click button#crit-delete':'deleteCrit',
+		'click span#crit-delete':'deleteCrit',
 		"click button#reply-button": "addNewForm"
 	},
 	
