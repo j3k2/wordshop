@@ -4,8 +4,10 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 	tagName: 'div',
 	className: 'no-sidebar',
 	initialize: function(){
-		this.listenTo(this.collection, 'sync sort', this.render);		
+		this.listenTo(this.collection, 'sync sort', this.render);	
+		
 	},
+	
 	render: function(){
 		var content = this.template({texts: this.collection});
 		this.$el.html(content);
@@ -16,9 +18,23 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 		'click button#sort-texts-index-title':'sortIndexTitle',
 		'click button#sort-texts-index-author':'sortIndexAuthor',
 		'click button#sort-texts-index-id':'sortIndexId',
+		// 'keyup input#filter-texts': 'filterTexts',
+		'submit form#filter-texts': 'filterTextsButton'
 		
 	},
+
+	// filterTexts: function(event){
+	// 	var results = this.collection.where({username: event.target.value});
+	// 		this.collection.set(results);
+	// },
 	
+	filterTextsButton: function(event){
+		event.preventDefault();
+		debugger
+		var results = this.collection.where({username: 'charles_bukowski'});
+		this.collection.set(results);
+	},
+
 	sortIndexCrits: function(){
 		if($('button#sort-texts-index-crits').data('sort-method') === 'desc'){
 			this.collection.comparator = function(text){

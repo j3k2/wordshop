@@ -6,6 +6,10 @@ Sort by:
 <button id="sort-texts-index-id" data-sort-method="asc" class="btn-default">new/old</button>
 
 	<br><br>
+	<form id="filter-texts">
+		<input type="text" id="filter-criteria"></input>
+		<input type="submit" class="btn-default" id="filter-texts" value="Filter by author"></input>
+	</form>
 	
 	<ul class="list-group index">
 	<% texts.forEach(function(text){ %>

@@ -54,6 +54,7 @@ Wordshop.Models.Text = Backbone.Model.extend({
 			this.comments().set(response.comments, {parse: true});
 			delete response.comments;
 		}
+
 		return response;
 	}
 	
