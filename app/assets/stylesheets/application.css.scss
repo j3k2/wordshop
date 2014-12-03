@@ -155,6 +155,10 @@ form.button_to{
 	margin-top: 0px;	
 }
 
+.glyphicon-trash:hover{
+	cursor:pointer;
+}
+
 /*annotation*/
 a.hilite:hover{
 	background: grey;
@@ -210,6 +214,10 @@ pre#text-content{
 	position:absolute;
 	right:0px;
 	padding:0px;
+}
+
+.h-not-block{
+	display:inline-block;
 }
 
 /*TextNew*/

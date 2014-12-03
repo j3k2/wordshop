@@ -3,7 +3,7 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
   template: JST['users/show'],
 	
 	initialize: function(){
-		this.listenTo(this.model, 'sync', this.render);
+		this.listenTo(this.model, 'sync imgChanged', this.render);
 		
 		var UserTextsIndexView = new Wordshop.Views.UserTextsIndex({
 			collection: this.model.texts()
@@ -146,7 +146,7 @@ Wordshop.Views.UserShow = Backbone.CompositeView.extend({
 	  });	 
 	  user.save({}, {
       success: function(){
-	      that.render();
+	      that.model.trigger('imgChanged');
 	    }
 	  });
 	},

@@ -23,7 +23,7 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 		'mousedown pre#text-content':'initiateSelection',
 		'mouseup pre#text-content':'getSelectedText',
 		'click pre#text-content > a':'renderCritique',
-		'click button#text-delete': 'deleteText',
+		'click span#text-delete': 'deleteText',
 		'click button#comment-button':'addCommentForm'
 	},
 	
