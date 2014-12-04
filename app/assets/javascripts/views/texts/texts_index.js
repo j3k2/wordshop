@@ -4,14 +4,18 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 	tagName: 'div',
 	className: 'no-sidebar',
 	initialize: function(){
+		
+		this.filteredTexts = new Wordshop.Collections.Texts();
 		this.listenTo(this.collection, 'sync sort', this.render);	
-		
-		
+		this.listenTo(this.filteredTexts, 'sync sort', this.renderFilteredTexts);
 		
 	},
 	
 	render: function(){
-		var content = this.template({texts: this.collection});
+		
+		var content = this.template({
+			texts: this.collection		
+		});
 		this.$el.html(content);
 		return this;
 	},
@@ -20,15 +24,33 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 		'click button#sort-texts-index-title':'sortIndexTitle',
 		'click button#sort-texts-index-author':'sortIndexAuthor',
 		'click button#sort-texts-index-id':'sortIndexId',
-		'keyup input#filter-texts-input': 'filterTexts'
+		'keyup input#filter-texts-input': 'filterTexts',
+		'click input#filter-texts-input': 'refreshTexts'
 		
+	},
+	
+	refreshTexts: function(event){
+		if(this.filteredTexts.length > 0){
+			this.collection.trigger('sync');
+		}
+		this.filteredTexts.reset();
+		$('input#filter-texts-input').focus();
 	},
 
 	filterTexts: function(event){
 		var results = this.collection.where({username: event.target.value});
 		if(results.length !== 0){
-			this.collection.set(results);
+			this.filteredTexts.set(results);
 		}
+	},
+	
+	renderFilteredTexts: function(){
+		var content = this.template({
+			texts: this.filteredTexts
+		});
+		this.$el.html(content);
+		return this;
+		
 	},
 
 	sortIndexCrits: function(){
