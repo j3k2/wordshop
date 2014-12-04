@@ -12,11 +12,11 @@ Sort by:
 	<% texts.forEach(function(text){ %>
 		
 		<a href="#texts/<%= text.id %>" class="list-group-item index">
-			<strong><%= text.escape('title') %></strong>
+			<strong class="index-item-text"><%= text.escape('title') %></strong>
 			 by <%= text.user().escape('username') %>
-			<small><em><%= moment(text.escape('created_at')).fromNowOrNow() %></em></small>
+			<small><em class="index-item-text"><%= moment(text.escape('created_at')).fromNowOrNow() %></em></small>
 			
-			<span class="badge"><%= text.critiques().length %></span>
+			<span class="badge" class="index-item-text"><%= text.critiques().length %></span>
 		</a>
 
   <% })%>
