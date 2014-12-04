@@ -68,6 +68,7 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 			if(result){
 				that.model.destroy({
 					success: function(){
+						view.text.critiques().remove(that.model);
 						view.text.trigger('critiqueChanged');
 						view.remove();
 					}

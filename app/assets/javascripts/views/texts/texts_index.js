@@ -53,6 +53,7 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 			texts: this.filteredTexts
 		});
 		this.$el.html(content);
+		$('#filter-texts-input').attr('placeholder','Click here to go back to all texts');
 		return this;
 		
 	},
