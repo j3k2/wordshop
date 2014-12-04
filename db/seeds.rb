@@ -6,7 +6,9 @@ Critique.create!([
   {user_id: 6, text_id: 3, content: "interesting way to start it off. have you considered using more punctuation marks?", start_idx: 0, end_idx: 2},
   {user_id: 1, text_id: 3, content: "i like getting drunk.", start_idx: 340, end_idx: 348},
   {user_id: 3, text_id: 21, content: "very effective repetition here", start_idx: 1497, end_idx: 1539},
-  {user_id: 2, text_id: 2, content: "how whimsical", start_idx: 492, end_idx: 532}
+  {user_id: 2, text_id: 2, content: "how whimsical", start_idx: 492, end_idx: 532},
+  {user_id: 6, text_id: 2, content: "great rhythm to the way these lines are broken up", start_idx: 882, end_idx: 923},
+  {user_id: 3, text_id: 25, content: "wonderful phrase", start_idx: 123, end_idx: 150}
 ])
 Text.create!([
   {title: "the tragedy of the leaves", content: "I awakened to dryness and the ferns were dead,\nthe potted plants yellow as corn;\nmy woman was gone\nand the empty bottles like bled corpses\nsurrounded me with their uselessness;\nthe sun was still good, though,\nand my landlady’s note cracked in fine and\nundemanding yellowness; what was needed now\nwas a good comedian, ancient style, a jester\nwith jokes upon absurd pain; pain is absurd\nbecause it exists, nothing more;\nI shaved carefully with an old razor\nthe man who had once been young and\nsaid to have genius; but\nthat’s the tragedy of the leaves,\nthe dead ferns, the dead plants;\nand I walked into a dark hall\nwhere the landlady stood\nexecrating and final,\nsending me to hell,\nwaving her fat, sweaty arms\nand screaming\nscreaming for rent\nbecause the world has failed us\nboth", user_id: 1},
@@ -22,10 +24,10 @@ Text.create!([
   {title: "the sky was", content: "the\n   sky\n       was\ncan  dy  lu\nminous\n     edible\nspry\n     pinks shy\nlemons\ngreens  coo  l choc\nolate\ns.\n  un  der,\n  a  lo\nco\nmo\n  tive   s   pout \n                 ing\n                    vi\n                    o\n                    lets", user_id: 6}
 ])
 User.create!([
+  {username: "charles_bukowski", password_digest: "$2a$10$XmpHL0c1Dt9mWvmKYRcRFOcMZ0aZ0rTWounjVRlA87E1q228/M1qy", session_token: "_k7OrvRLegLoyDr4SUxPaA", filepicker_url: "https://www.filepicker.io/api/file/Udy9s0mITZelFtL9XABc"},
+  {username: "sylvia_plath", password_digest: "$2a$10$A2.sGWGFOLKsEWCuc5Pwge4r5ZgQja6YMQWDR8466POJ3mNFHT78i", session_token: "Mdp9uVk7TO1rGY8csb4vFg", filepicker_url: "https://www.filepicker.io/api/file/l06hExojQRqNi0x6Ak8v"}
+  {username: "allen_ginsberg", password_digest: "$2a$10$QvebnyZfIhNX.N4N1iWm7OpKvmRRW9VKAP7KQRui0Gxu1tPJhronC", session_token: "klrNrK0-9uxrmPQgDNQVGw", filepicker_url: "https://www.filepicker.io/api/file/i5IYAzUcTHSwQDEQ8foW"},
   {username: "Guest", password_digest: "$2a$10$Lp/vKzjASrk1Wt2BlvQQduCKxCQJgDUuzpcdabKh8Yq4tfyhJ2TYW", session_token: "QXFSqvUiS8SCV-G6SNInrA", filepicker_url: "https://www.filepicker.io/api/file/pHF0SBJoRWS1fJVQmTHA"},
   {username: "gil_scott_heron", password_digest: "$2a$10$FmqgeuLOekITTE3O7kWM5eZTmiQ4je.CpgW8SLtakjHOO7rYkn7.O", session_token: "vzsLsIG_0yViwxy0ayVQNw", filepicker_url: "https://www.filepicker.io/api/file/qwbuoD4R3av0ubKmbDXw"},
   {username: "ee_cummings", password_digest: "$2a$10$jHyOxVdpdSwQd9xAmL5Gyuz9cb/V5p8RlO3mANR7A7qUfWHfZfjT6", session_token: "Ns5H_36dzlx9VhGM4QZwsg", filepicker_url: "https://www.filepicker.io/api/file/dfOyzJtuQmewB57kDwhP"},
-  {username: "charles_bukowski", password_digest: "$2a$10$XmpHL0c1Dt9mWvmKYRcRFOcMZ0aZ0rTWounjVRlA87E1q228/M1qy", session_token: "_k7OrvRLegLoyDr4SUxPaA", filepicker_url: "https://www.filepicker.io/api/file/Udy9s0mITZelFtL9XABc"},
-  {username: "allen_ginsberg", password_digest: "$2a$10$QvebnyZfIhNX.N4N1iWm7OpKvmRRW9VKAP7KQRui0Gxu1tPJhronC", session_token: "klrNrK0-9uxrmPQgDNQVGw", filepicker_url: "https://www.filepicker.io/api/file/i5IYAzUcTHSwQDEQ8foW"},
-  {username: "sylvia_plath", password_digest: "$2a$10$A2.sGWGFOLKsEWCuc5Pwge4r5ZgQja6YMQWDR8466POJ3mNFHT78i", session_token: "Mdp9uVk7TO1rGY8csb4vFg", filepicker_url: "https://www.filepicker.io/api/file/l06hExojQRqNi0x6Ak8v"}
 ])
