@@ -39,6 +39,10 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 	filterTexts: function(event){
 		
 		var results = this.collection.where({username: event.target.value});
+		if(results.length === 0){
+			results = this.collection.where({title: event.target.value});
+		}
+		
 		if(results.length !== 0){
 			this.filteredTexts.set(results);
 		}

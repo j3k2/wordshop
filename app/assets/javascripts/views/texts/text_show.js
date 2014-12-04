@@ -129,14 +129,10 @@ Wordshop.Views.TextShow = Backbone.CompositeView.extend({
 	
 	addComment: function(comment){
 		var that = this;
-		comment.fetch({
-			success: function(){
-				var commentShowView = new Wordshop.Views.CommentShow({
-					model: comment
-				});
-				that.addSubview("#text-comments", commentShowView);
-			}
+		var commentShowView = new Wordshop.Views.CommentShow({
+			model: comment
 		});
+		that.addSubview("#text-comments", commentShowView);
 	},
 	
   removeComment: function (comment) {
