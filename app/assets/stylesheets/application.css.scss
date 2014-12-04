@@ -147,9 +147,9 @@ textarea#text-content{
 .byline{
 	background: lightgrey;
 	display:block;
-	height:30px;
-	padding-top:5px;
+	height:20px;
 	padding-left: 5px;
+	font-size: 14px;
 }
 
 .byline-small{
@@ -166,7 +166,6 @@ textarea#text-content{
 }
 div.hilite{
 	margin-bottom:5px;
-	
 }
 .glyphicon-trash:hover{
 	cursor:pointer;
@@ -271,8 +270,8 @@ div#crit-content{
 .reply-show{
 	border: 1px solid lightgrey;
 	margin:2px;
-	white-space:pre-line;
-  border-radius: 5px;
+/*	white-space:pre-line;
+*/  border-radius: 5px;
 }
 
 .reply-content{

@@ -1,13 +1,11 @@
 Wordshop.Views.CommentShow = Backbone.View.extend({
 
   template: JST['comments/show'],
+	
 	tagName: 'div',
+	
 	className: 'reply-show',
-		//
-	// initialize: function(){
-	// 	this.listenTo(this.model, 'sync add remove', this.render);
-	// },
-	//
+	
 	events: {
 		'click span#comment-delete':'deleteComment',
 	},

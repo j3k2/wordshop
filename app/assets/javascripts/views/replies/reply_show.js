@@ -1,12 +1,10 @@
 Wordshop.Views.ReplyShow = Backbone.View.extend({
 
   template: JST['replies/show'],
+	
 	tagName: 'div',
+	
 	className: 'reply-show',
-		//
-	// initialize: function(){
-	// 	this.listenTo(this.model, 'sync add remove', this.render);
-	// },
 	
 	events: {
 		'click span#reply-delete':'deleteReply',
