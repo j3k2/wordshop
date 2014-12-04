@@ -54,90 +54,141 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 	},
 
 	sortIndexCrits: function(){
-		if($('button#sort-texts-index-crits').data('sort-method') === 'desc'){
-			this.collection.comparator = function(text){
-				return -text.critiques().length;
-			};
-			this.collection.sort();
-			$('button#sort-texts-index-crits').data('sort-method', 'asc');
+		if(this.filteredTexts.length > 0){
+			if($('button#sort-texts-index-crits').data('sort-method') === 'desc'){
+				this.filteredTexts.comparator = function(text){
+					return -text.critiques().length;
+				};
+				this.filteredTexts.sort();
+				$('button#sort-texts-index-crits').data('sort-method', 'asc');
+			} else {
+				this.filteredTexts.comparator = function(text){
+					return text.critiques().length;
+				};
+				this.filteredTexts.sort();
+				$('button#sort-texts-index-crits').data('sort-method', 'desc');
+			}
 		} else {
-			this.collection.comparator = function(text){
-				return text.critiques().length;
-			};
-			this.collection.sort();
-			$('button#sort-texts-index-crits').data('sort-method', 'desc');
+			if($('button#sort-texts-index-crits').data('sort-method') === 'desc'){
+				this.collection.comparator = function(text){
+					return -text.critiques().length;
+				};
+				this.collection.sort();
+				$('button#sort-texts-index-crits').data('sort-method', 'asc');
+			} else {
+				this.collection.comparator = function(text){
+					return text.critiques().length;
+				};
+				this.collection.sort();
+				$('button#sort-texts-index-crits').data('sort-method', 'desc');
 			
+			}
 		}
 	},
 	
 	sortIndexTitle: function(){
-		if($('button#sort-texts-index-title').data('sort-method') === 'desc'){
-			this.collection.comparator = function(text){
-				//thanks to andrew-de-andrade on stackoverflow:
-				var str = text.get('title');
-				  str = str.toLowerCase();
-				  str = str.split("");
-				  str = _.map(str, function(letter) { 
-				    return String.fromCharCode(-(letter.charCodeAt(0)));
-				  });
-				  return str;
-			};
-			this.collection.sort();
-			$('button#sort-texts-index-title').data('sort-method', 'asc');
-		} else {
-			this.collection.comparator = function(text){
-				return text.get('title').toLowerCase();
-			};
-			this.collection.sort();
-			$('button#sort-texts-index-title').data('sort-method', 'desc');
-			// $('span.title-icon').removeClass('glyphicon-sort-by-alphabet');
-			// $('span.title-icon').addClass('glyphicon glyphicon-sort-by-alphabet-alt');
+		if(this.filteredTexts.length > 0){
+			if($('button#sort-texts-index-title').data('sort-method') === 'desc'){
+				this.filteredTexts.comparator = function(text){
+					//thanks to andrew-de-andrade on stackoverflow:
+					var str = text.get('title');
+					  str = str.toLowerCase();
+					  str = str.split("");
+					  str = _.map(str, function(letter) { 
+					    return String.fromCharCode(-(letter.charCodeAt(0)));
+					  });
+					  return str;
+				};
+				this.filteredTexts.sort();
+				$('button#sort-texts-index-title').data('sort-method', 'asc');
+			} else {
+				this.filteredTexts.comparator = function(text){
+					return text.get('title').toLowerCase();
+				};
+				this.filteredTexts.sort();
+				$('button#sort-texts-index-title').data('sort-method', 'desc');
 			
+			}
+		} else {
+			if($('button#sort-texts-index-title').data('sort-method') === 'desc'){
+				this.collection.comparator = function(text){
+					//thanks to andrew-de-andrade on stackoverflow:
+					var str = text.get('title');
+					  str = str.toLowerCase();
+					  str = str.split("");
+					  str = _.map(str, function(letter) { 
+					    return String.fromCharCode(-(letter.charCodeAt(0)));
+					  });
+					  return str;
+				};
+				this.collection.sort();
+				$('button#sort-texts-index-title').data('sort-method', 'asc');
+			} else {
+				this.collection.comparator = function(text){
+					return text.get('title').toLowerCase();
+				};
+				this.collection.sort();
+				$('button#sort-texts-index-title').data('sort-method', 'desc');
+			
+			}
+		
 		}
 	},
-	
-	sortIndexAuthor: function(){
-		if($('button#sort-texts-index-author').data('sort-method') === 'desc'){
-			this.collection.comparator = function(text){
-				//thanks to andrew-de-andrade on stackoverflow:
-				var str = text.user().get('username');
-				  str = str.toLowerCase();
-				  str = str.split("");
-				  str = _.map(str, function(letter) { 
-				    return String.fromCharCode(-(letter.charCodeAt(0)));
-				  });
-				  return str;
-			};
-			this.collection.sort();
-			$('button#sort-texts-index-author').data('sort-method', 'asc');
-		} else {
-			this.collection.comparator = function(text){
-				return text.user().get('username').toLowerCase();
-			};
-			this.collection.sort();
-			$('button#sort-texts-index-author').data('sort-method', 'desc');
-			// $('span.author-icon').removeClass('glyphicon-sort-by-alphabet');
-			// $('span.author-icon').addClass('glyphicon glyphicon-sort-by-alphabet-alt');
-			
-		}
-	},
-	
+	//
+	// sortIndexAuthor: function(){
+	// 	if($('button#sort-texts-index-author').data('sort-method') === 'desc'){
+	// 		this.collection.comparator = function(text){
+	// 			//thanks to andrew-de-andrade on stackoverflow:
+	// 			var str = text.user().get('username');
+	// 			  str = str.toLowerCase();
+	// 			  str = str.split("");
+	// 			  str = _.map(str, function(letter) {
+	// 			    return String.fromCharCode(-(letter.charCodeAt(0)));
+	// 			  });
+	// 			  return str;
+	// 		};
+	// 		this.collection.sort();
+	// 		$('button#sort-texts-index-author').data('sort-method', 'asc');
+	// 	} else {
+	// 		this.collection.comparator = function(text){
+	// 			return text.user().get('username').toLowerCase();
+	// 		};
+	// 		this.collection.sort();
+	// 		$('button#sort-texts-index-author').data('sort-method', 'desc');
+	// 	}
+	// },
+	//
 	sortIndexId: function(){
-		if($('button#sort-texts-index-id').data('sort-method') === 'desc'){
-			this.collection.comparator = function(text){
-				return -text.id;
-			};
-			this.collection.sort();
-			$('button#sort-texts-index-id').data('sort-method', 'asc');
+		if(this.filteredTexts.length > 0){
+			if($('button#sort-texts-index-id').data('sort-method') === 'desc'){
+				this.filteredTexts.comparator = function(text){
+					return -text.id;
+				};
+				this.filteredTexts.sort();
+				$('button#sort-texts-index-id').data('sort-method', 'asc');
 
+			} else {
+				this.filteredTexts.comparator = function(text){
+					return text.id;
+				};
+				this.filteredTexts.sort();
+				$('button#sort-texts-index-id').data('sort-method', 'desc');
+			}
 		} else {
-			this.collection.comparator = function(text){
-				return text.id;
-			};
-			this.collection.sort();
-			$('button#sort-texts-index-id').data('sort-method', 'desc');
+			if($('button#sort-texts-index-id').data('sort-method') === 'desc'){
+				this.collection.comparator = function(text){
+					return -text.id;
+				};
+				this.collection.sort();
+				$('button#sort-texts-index-id').data('sort-method', 'asc');
+
+			} else {
+				this.collection.comparator = function(text){
+					return text.id;
+				};
+				this.collection.sort();
+				$('button#sort-texts-index-id').data('sort-method', 'desc');
+			}
 		}
 	}
-
-	
 });
