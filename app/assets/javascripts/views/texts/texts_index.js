@@ -17,6 +17,7 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 			texts: this.collection		
 		});
 		this.$el.html(content);
+		this.installTypeahead();
 		return this;
 	},
 	events: {
@@ -53,7 +54,8 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 			texts: this.filteredTexts
 		});
 		this.$el.html(content);
-		$('#filter-texts-input').attr('placeholder','Click here to go back to all texts');
+		this.installTypeahead();
+		$('#filter-texts-input').attr('placeholder','Search all texts');
 		return this;
 		
 	},
@@ -195,5 +197,53 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 				$('button#sort-texts-index-id').data('sort-method', 'desc');
 			}
 		}
+	},
+	
+	
+	substringMatcher: function(strs) {
+	  return function findMatches(q, cb) {
+	    var matches, substrRegex;
+
+	    matches = [];
+
+	    substrRegex = new RegExp(q, 'i');
+
+	    $.each(strs, function(i, str) {
+	      if (substrRegex.test(str)) {
+	        matches.push({ value: str });
+	      }
+	    });
+
+	    cb(matches);
+	  };
+	},
+	
+	generateAuthors: function(){
+		
+		var authors = [];
+	
+		this.collection.forEach(function(text){
+			if(authors.indexOf(text.escape('username')) === -1) {
+				authors = authors.concat(text.escape('username'));
+			}
+			authors = authors.concat(text.escape('title'));
+		});
+		
+		return authors;
+	},
+
+	installTypeahead: function(){
+		this.$('#filter-texts-input').typeahead({
+		  hint: true,
+		  highlight: true,
+		  minLength: 1
+		},
+		{
+		  name: 'authors',
+		  displayKey: 'value',
+		  source: this.substringMatcher(this.generateAuthors())
+		});
+		
 	}
+
 });
