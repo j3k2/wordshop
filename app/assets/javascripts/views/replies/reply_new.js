@@ -27,6 +27,7 @@ Wordshop.Views.ReplyNew = Backbone.View.extend({
 			bootbox.alert('Cannot submit an empty reply.');
 			return;
 		}
+		params.username = window.currentUser.username;
 		var reply = new Wordshop.Models.Reply(params);
 		var that = this;
 		reply.save({},{

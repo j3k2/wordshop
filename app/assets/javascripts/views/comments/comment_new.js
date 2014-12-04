@@ -24,6 +24,7 @@ Wordshop.Views.CommentNew = Backbone.View.extend({
 			bootbox.alert('Cannot submit an empty comment.');
 			return;
 		}
+		params.username = window.currentUser.username;
 		var comment = new Wordshop.Models.Comment(params);
 		var that = this;
 		comment.save({},{

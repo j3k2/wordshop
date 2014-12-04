@@ -63,7 +63,8 @@
 		<%= filepicker_js_include_tag %>			
 		<script type="text/javascript">
 		    window.currentUser = {
-		        id : "<%= current_user.id %>"
+		        id : "<%= current_user.id %>",
+					username: "<%= current_user.username %>"
 		    };
 				$('body').css({"background": "none", "background-color": 'white'});
 				$(function () {
