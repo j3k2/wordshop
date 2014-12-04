@@ -4,8 +4,8 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 	tagName: 'div',
 	className: 'no-sidebar',
 	initialize: function(){
+		this.filteredTexts = this.filteredTexts || new Wordshop.Collections.Texts();
 		
-		this.filteredTexts = new Wordshop.Collections.Texts();
 		this.listenTo(this.collection, 'sync sort', this.render);	
 		this.listenTo(this.filteredTexts, 'sync sort', this.renderFilteredTexts);
 		
@@ -25,8 +25,7 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 		'click button#sort-texts-index-author':'sortIndexAuthor',
 		'click button#sort-texts-index-id':'sortIndexId',
 		'keyup input#filter-texts-input': 'filterTexts',
-		'click input#filter-texts-input': 'refreshTexts'
-		
+		'click input#filter-texts-input': 'refreshTexts'		
 	},
 	
 	refreshTexts: function(event){
@@ -38,6 +37,7 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 	},
 
 	filterTexts: function(event){
+		
 		var results = this.collection.where({username: event.target.value});
 		if(results.length !== 0){
 			this.filteredTexts.set(results);
