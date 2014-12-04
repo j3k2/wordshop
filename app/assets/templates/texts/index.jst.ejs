@@ -5,16 +5,66 @@ Sort by:
 <button id="sort-texts-index-author" data-sort-method="asc" class="btn-default"><!-- <span class="author-icon glyphicon glyphicon-sort-by-alphabet"></span>   -->author</button>
 <button id="sort-texts-index-id" data-sort-method="asc" class="btn-default">new/old</button>
 
-	<br><br>
-		<input type="text" id="filter-texts-input" class="txti"></input>
+<br><br>
+<input type="text" id="filter-texts-input" class="txti" placeholder="Filter by author's username"></input>
+
+<br><br>
 	
 	<ul class="list-group index">
 	<% texts.forEach(function(text){ %>
 		
-		<a href="#texts/<%= text.id %>" class="list-group-item index"><strong><%= text.escape('title') %></strong> by <%= text.user().escape('username') %></span>
+		<a href="#texts/<%= text.id %>" class="list-group-item index">
+			<strong><%= text.escape('title') %></strong>
+			 by <%= text.user().escape('username') %>
 			<small><em><%= moment(text.escape('created_at')).fromNow() %></em></small>
 			
-			<span class="badge"><%= text.critiques().length %></span></a>
+			<span class="badge"><%= text.critiques().length %></span>
+		</a>
 
   <% })%>
-</ul>
+	</ul>
+
+<script>
+	var substringMatcher = function(strs) {
+	  return function findMatches(q, cb) {
+	    var matches, substrRegex;
+
+	    // an array that will be populated with substring matches
+	    matches = [];
+
+	    // regex used to determine if a string contains the substring `q`
+	    substrRegex = new RegExp(q, 'i');
+
+	    // iterate through the pool of strings and for any string that
+	    // contains the substring `q`, add it to the `matches` array
+	    $.each(strs, function(i, str) {
+	      if (substrRegex.test(str)) {
+	        // the typeahead jQuery plugin expects suggestions to a
+	        // JavaScript object, refer to typeahead docs for more info
+	        matches.push({ value: str });
+	      }
+	    });
+
+	    cb(matches);
+	  };
+	};
+
+	var authors = [];
+	
+	<% texts.forEach(function(text){%>
+		if(authors.indexOf('<%= text.escape('username') %>') === -1) {
+			authors = authors.concat("<%= text.escape('username') %>");
+		}
+	<% }); %>
+
+	$('#filter-texts-input').typeahead({
+	  hint: true,
+	  highlight: true,
+	  minLength: 1
+	},
+	{
+	  name: 'authors',
+	  displayKey: 'value',
+	  source: substringMatcher(authors)
+	});
+	</script>

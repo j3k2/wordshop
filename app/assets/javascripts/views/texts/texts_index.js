@@ -6,6 +6,8 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 	initialize: function(){
 		this.listenTo(this.collection, 'sync sort', this.render);	
 		
+		
+		
 	},
 	
 	render: function(){
