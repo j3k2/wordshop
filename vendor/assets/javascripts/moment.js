@@ -2263,6 +2263,13 @@
         fromNow : function (withoutSuffix) {
             return this.from(moment(), withoutSuffix);
         },
+				//https://github.com/moment/moment/issues/537#issuecomment-11265799:
+				fromNowOrNow: function (a) {
+				    if (Math.abs(moment().diff(this)) < 25000) { // 25 seconds before or after now
+				        return 'just now';
+				    }
+				    return this.fromNow(a);
+				},
 
         calendar : function (time) {
             // We want to compare the start of today, vs this.

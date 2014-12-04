@@ -8,7 +8,7 @@
 
 <br>
 <em class="byline">posted by 
-	<a href="#users/<%= critique.user().id %>"><%= critique.user().escape('username') %></a> <%= moment(critique.escape('created_at')).fromNow() %>
+	<a href="#users/<%= critique.user().id %>"><%= critique.user().escape('username') %></a> <%= moment(critique.escape('created_at')).fromNowOrNow() %>
 	<% if(critique.user().id == window.currentUser.id){%>
 		
 		<span id="crit-delete" class="glyphicon glyphicon-trash" aria-hidden="true"></span>

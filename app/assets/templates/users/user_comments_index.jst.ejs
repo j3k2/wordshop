@@ -8,7 +8,7 @@ Sort by: <button id="sort-users-comments-id" data-sort-method="asc" 								clas
 
 <div class="reply-content"><%= comment.escape('content') %></div>
 
-<small class="byline-small"><em>posted <%= moment(comment.escape('created_at')).fromNow() %></em></small>
+<small class="byline-small"><em>posted <%= moment(comment.escape('created_at')).fromNowOrNow() %></em></small>
 </div>
 
 <% }) %>

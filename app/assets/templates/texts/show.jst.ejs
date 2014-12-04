@@ -10,7 +10,7 @@ by
 
 <a href="#/users/<%= text.user().id %>">
 	<%= text.user().escape('username') %></a>
-	<small><em><%= moment(text.escape('created_at')).fromNow() %></span></em></small>
+	<small><em><%= moment(text.escape('created_at')).fromNowOrNow() %></span></em></small>
 	
 
 <pre id="text-content"><%= text.annotatedContent() %></pre>

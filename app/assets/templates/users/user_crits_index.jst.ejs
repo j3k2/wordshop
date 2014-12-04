@@ -16,6 +16,6 @@ Sort by: <button id="sort-users-crits-id" data-sort-method="asc" 								class="
 
 	<div id='crit-content'><%= critique.escape('content') %></div>
 	
-	<small class="byline-small"><em>posted <%= moment(critique.escape('created_at')).fromNow() %></em></small>
+	<small class="byline-small"><em>posted <%= moment(critique.escape('created_at')).fromNowOrNow() %></em></small>
 </div>	
 <% })%>
