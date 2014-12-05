@@ -2,10 +2,9 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 	
   template: JST['critiques/show'],
 	tagName: 'div',
-	className: 'crit-show',
+	id: 'crit-show',
 	initialize: function(options){
 		this.listenTo(this.model, 'sync', this.render);
-		// this.listenTo(this.model.replies(), "sync", this.render);
     this.listenTo(this.model.replies(), "add", this.addReply);
     this.listenTo(this.model.replies(), "remove", this.removeReply);
 		

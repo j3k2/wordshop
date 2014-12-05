@@ -6,7 +6,7 @@ Sort by: <button id="sort-users-comments-id" data-sort-method="asc" 								clas
 	<p class="byline">
 	<a href="#texts/<%= comment.text().id %>"><%= comment.text().escape('title') %></a> by <a href="#/users/<%= comment.text().get('author_id') %>"><%= comment.text().escape('author') %></a> </p>
 
-<div class="reply-content"><%= comment.escape('content') %></div>
+<div class="reply-comment-content"><%= comment.escape('content') %></div>
 
 <small class="byline-small"><em>posted <%= moment(comment.escape('created_at')).fromNowOrNow() %></em></small>
 </div>

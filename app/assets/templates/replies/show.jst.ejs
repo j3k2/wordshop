@@ -1,5 +1,5 @@
 <!-- REPLY SHOW -->
 
-<div class="reply-content"><%= reply.escape('content') %></div>
+<div class="reply-comment-content"><%= reply.escape('content') %></div>
 
 <small class="byline-small"><em>posted by <a href="#users/<%=reply.get('user_id')%>"><%= reply.escape('username') %></a> <%= moment(reply.escape('created_at')).fromNowOrNow() %></em><% if(reply.get('user_id') == window.currentUser.id) { %><span id="reply-delete" class="glyphicon glyphicon-trash"></span></a><% } %></small>

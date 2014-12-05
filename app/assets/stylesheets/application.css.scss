@@ -33,14 +33,14 @@ a:hover{
 }
 
 .no-sidebar{
-width: 700px;
-margin-left: auto;
-margin-right :auto;
+	width: 700px;
+	margin-left: auto;
+	margin-right :auto;
 }
 
 #footer{
-height: 100px;
-width: 100%;
+	height: 100px;
+	width: 100%;
 }
 
 .alert{
@@ -49,35 +49,15 @@ width: 100%;
 	border: none;
 }
 
-/*navbar*/
-.navbar{
-	height: 80px;
-	padding: 8px;
-	background: cyan;
-	border:none;
+.hilite{
+	background:cyan;
+	margin-top: 0px;	
 }
 
-.navbar-default .navbar-brand{
-	font-family: Special Elite, serif;
-	font-size: 36px;
-	font-weight:bold;
-	color: black;
-	padding-top:25px;	
-}
-
-.navbar-form{
-background: cyan;
-}
-
-.btngrp{
-	padding: 10px;
-	padding-top: 15px;
-	float: right;
-	background: cyan;
-}
-
-form.button_to{
-	display: inline-block;
+a.hilite:hover{
+	background: grey;
+	color:white;
+	text-decoration:none;
 }
 
 /*buttons*/
@@ -111,9 +91,6 @@ form.button_to{
 	
 }
 
-textarea#text-content{
-	height:400px;
-}
 
 .txta-small{
 	margin-top: 5px;
@@ -142,8 +119,65 @@ textarea#text-content{
   border-radius: 5px;
 }
 
+/*navbar*/
+.navbar{
+	height: 80px;
+	padding: 8px;
+	background: cyan;
+	border:none;
+}
 
-/*shared by texts, crits, comments, replies*/
+.navbar-default .navbar-brand{
+	font-family: Special Elite, serif;
+	font-size: 36px;
+	font-weight:bold;
+	color: black;
+	padding-top:25px;	
+}
+
+.navbar-form{
+	background: cyan;
+}
+
+.btngrp{
+	padding: 10px;
+	padding-top: 15px;
+	float: right;
+	background: cyan;
+}
+
+form.button_to{
+	display: inline-block;
+}
+
+/*Splash page*/
+form.user-form{
+	width: 200px;
+}
+
+div.splash-wrapper{
+	background:white;
+  width:max-content;
+  padding:30px;
+	border-radius:5px;
+	opacity:0.9;
+
+}
+
+div.about{
+	background:white;
+	border-radius:5px;
+	padding:30px;
+	opacity:0.9;
+	
+}
+
+/*Shared by more than 2 Backbone Views*/
+
+.glyphicon-trash:hover{
+	cursor:pointer;
+}
+
 .byline{
 	background: lightgrey;
 	display:block;
@@ -160,23 +194,15 @@ textarea#text-content{
 	padding-right:5px;
 }
 
-.hilite{
-	background:cyan;
-	margin-top: 0px;	
-}
 div.hilite{
 	margin-bottom:5px;
 }
-.glyphicon-trash:hover{
-	cursor:pointer;
+
+#crit-delete, #reply-delete, #comment-delete{
+	float: right;
+	margin-right: 5px;
 }
 
-/*annotation*/
-a.hilite:hover{
-	background: grey;
-	color:white;
-	text-decoration:none;
-}
 
 /*TextsIndex and UserTextsIndex*/
 a.index:hover{
@@ -184,20 +210,19 @@ a.index:hover{
 	background:cyan;
 }
 
-/*TextsIndex*/
 .index-item-text{
 	display:inline-block;	
 }
 
 .badge{
-margin-left:25px;
-margin-right:5px;
+ 	margin-left: 25px;
+ 	margin-right: 5px;
 }
 
 /*UserShow*/
 .user-tab, .badge{
-margin-left:0px;
-margin-right:0px;
+ 	margin-left: 0px;
+	margin-right: 0px;
 }
 
 .user-item-show{
@@ -240,17 +265,12 @@ pre#text-content{
 textarea#text-content{
 	white-space: pre;
 	word-wrap: normal;
+	height:400px;
 }
 
 
-/*Delete Icons*/
-#crit-delete, #reply-delete, #comment-delete{
-	float: right;
-	margin-right:5px;
-}
-
-/*critique show*/
-.crit-show{
+/*CritiqueShow*/
+#crit-show{
 	border: 1px dashed grey;
   border-radius: 5px;
 	width: 100%;
@@ -259,46 +279,23 @@ textarea#text-content{
 }
 
 div#crit-content{
-	background:none;
-	border:none;
-	padding:2px;
-	white-space:pre-line;
-	margin:5px;
+	background: none;
+	border: none;
+	padding: 2px;
+	white-space: pre-line;
+	margin: 5px;
 }
 
-/*Reply Show*/
-.reply-show{
+/*ReplyShow and CommentShow*/
+.reply-comment-show{
 	border: 1px solid lightgrey;
 	margin:2px;
-/*	white-space:pre-line;
-*/  border-radius: 5px;
+	border-radius: 5px;
 }
 
-.reply-content{
+.reply-comment-content{
 	padding:2px;
 	margin:5px;
-}
-
-/*Splash page*/
-form.user-form{
-	width: 200px;
-}
-
-div.splash-wrapper{
-	background:white;
-  width:max-content;
-  padding:30px;
-	border-radius:5px;
-	opacity:0.9;
-
-}
-
-div.about{
-	background:white;
-	border-radius:5px;
-	padding:30px;
-	opacity:0.9;
-	
 }
 
 /*typeahead fix*/

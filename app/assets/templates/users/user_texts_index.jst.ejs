@@ -8,9 +8,9 @@ Sort by: <button id="sort-users-texts-crits" data-sort-method="asc" 								clas
 		
 	<% texts.forEach(function(text){ %>
 		<a href="#texts/<%= text.id %>" class="list-group-item index"><strong><%= text.escape('title') %></strong>
-			<small><em><%= moment(text.escape('created_at')).fromNowOrNow() %></span></em></small>
+			<small class="index-item-text"><em class="index-item-text"><%= moment(text.escape('created_at')).fromNowOrNow() %></em></small>
 			
-			<span class="badge"><%= text.critiques().length %></span>
+			<span class="badge" class="index-item-text"><%= text.critiques().length %></span>
   <% })%></a>
 
 </div>
