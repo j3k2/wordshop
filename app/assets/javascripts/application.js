@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializejson.min.js
-//= require jquery.vide.min.js
 //= require moment.js
 //= require bootstrap-sprockets
 //= require bootbox.min.js
