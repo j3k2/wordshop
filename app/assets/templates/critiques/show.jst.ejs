@@ -1,4 +1,4 @@
-<div class="hilite"><%= _.unescape(critique.text().escape("content")).slice(
+<div class="hilite"><%= _.unescape(text.escape("content")).slice(
 			critique.get('start_idx'),
 			critique.get('end_idx') + 1
 ) %></div>
@@ -8,8 +8,8 @@
 
 <br>
 <em class="byline">posted by 
-	<a href="#users/<%= critique.user().id %>"><%= critique.user().escape('username') %></a> <%= moment(critique.escape('created_at')).fromNowOrNow() %>
-	<% if(critique.user().id == window.currentUser.id){%>
+	<a href="#users/<%= critique.get('user_id') %>"><%= critique.escape('username') %></a> <%= moment(critique.escape('created_at')).fromNowOrNow() %>
+	<% if(critique.get('user_id') == window.currentUser.id){%>
 		
 		<span id="crit-delete" class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 		

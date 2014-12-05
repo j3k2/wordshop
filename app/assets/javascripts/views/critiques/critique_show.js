@@ -26,7 +26,8 @@ Wordshop.Views.CritiqueShow = Backbone.CompositeView.extend({
 	
 	render: function(){
 		var content = this.template({
-			critique: this.model
+			critique: this.model,
+			text: this.text
 		});
 		this.$el.html(content);
 		this.attachSubviews();
