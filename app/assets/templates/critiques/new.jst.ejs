@@ -1,4 +1,4 @@
-	<% if(text.user().id == window.currentUser.id){%>
+	<% if(text.get('user_id') == window.currentUser.id){%>
 		<div class="alert alert-danger" role="alert">
 		Cannot critique your own text...
 		</div>

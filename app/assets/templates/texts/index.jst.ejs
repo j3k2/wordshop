@@ -2,6 +2,7 @@
 Sort by:
 <button id="sort-texts-index-crits" data-sort-method="asc" class="btn-default"># of critiques</button>
 <button id="sort-texts-index-title" data-sort-method="asc" class="btn-default">title</button>
+<!-- unnecessary with filtering?: -->
 <!-- <button id="sort-texts-index-author" data-sort-method="asc" class="btn-default">author</button> -->
 <button id="sort-texts-index-id" data-sort-method="asc" class="btn-default">new/old</button>
 <input type="text" id="filter-texts-input" class="txti" placeholder="Search by title or author's username"></input>
@@ -13,7 +14,7 @@ Sort by:
 		
 		<a href="#texts/<%= text.id %>" class="list-group-item index">
 			<strong class="index-item-text"><%= text.escape('title') %></strong>
-			 by <%= text.user().escape('username') %>
+			 by <%= text.escape('username') %>
 			<small><em class="index-item-text"><%= moment(text.escape('created_at')).fromNowOrNow() %></em></small>
 			
 			<span class="badge" class="index-item-text"><%= text.critiques().length %></span>

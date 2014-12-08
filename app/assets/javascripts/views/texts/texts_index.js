@@ -141,7 +141,7 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 		
 		}
 	},
-	//
+	// unnecessary with filtering?:
 	// sortIndexAuthor: function(){
 	// 	if($('button#sort-texts-index-author').data('sort-method') === 'desc'){
 	// 		this.collection.comparator = function(text){

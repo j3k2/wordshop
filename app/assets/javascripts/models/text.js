@@ -22,34 +22,26 @@ Wordshop.Models.Text = Backbone.Model.extend({
 		});
 		
 		return textContent;
-	},
+	},	
+	
 	critiques: function(){
 		this._critiques = this._critiques ||
 		new Wordshop.Collections.Critiques();
 		return this._critiques;
 	},
+	
 	comments: function(){
 		this._comments = this._comments ||
 		new Wordshop.Collections.Comments();
 		return this._comments;
 	},
-	user: function(){
-		this._user = this._user ||
-		new Wordshop.Models.User();
-		return this._user;
-	},
 
 	parse: function(response){
-		if(response.user){
-			this.user().set(response.user, {parse: true});
-			delete response.user;
-		}
-		
 		if(response.critiques){
 			this.critiques().set(response.critiques, {parse: true});
 			delete response.critiques;
 		}
-		
+
 		if(response.comments){
 			this.comments().set(response.comments, {parse: true});
 			delete response.comments;

@@ -13,12 +13,6 @@ Wordshop.Models.User = Backbone.Model.extend({
 		return this._texts;
 	},
 	
-	critiquedTexts: function(){
-		this._critiquedTexts = this._critiquedTexts ||
-		new Wordshop.Collections.Texts();
-		return this._critiquedTexts;
-	},
-	
 	replies: function(){
 		this._replies = this._replies ||
 		new Wordshop.Collections.Replies();
@@ -35,12 +29,7 @@ Wordshop.Models.User = Backbone.Model.extend({
 		if(response.texts){
 			this.texts().set(response.texts, {parse: true});
 			delete response.texts;
-		}
-		
-		if(response.critiqued_texts){
-			this.critiquedTexts().set(response.critiqued_texts, {parse: true});
-			delete response.critiqued_texts;
-		}
+		}	
 		
 		if(response.critiques){
 			this.critiques().set(response.critiques, {parse: true});

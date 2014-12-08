@@ -9,7 +9,6 @@ json.critiques do
 		json.partial! 'api/critiques/critique', critique: critique
 	end
 end
-json.critiqued_texts @user.critiqued_texts
 json.replies do
 	json.array! @user.replies do |reply|
 		json.partial! 'api/replies/reply', reply: reply

@@ -5,3 +5,7 @@ json.comments do
 		json.partial! 'api/comments/comment', comment: comment
 	end
 end
+
+json.author_img @text.user.filepicker_url
+
+json.usernam @text.user.username
