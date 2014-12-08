@@ -9,10 +9,13 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 		this.listenTo(this.collection, 'sync sort', this.render);	
 		this.listenTo(this.filteredTexts, 'sync sort', this.renderFilteredTexts);
 		
+		this.collection.comparator = function(text){
+			return text.id;
+		};
+		this.collection.sort();
 	},
 	
 	render: function(){
-		
 		var content = this.template({
 			texts: this.collection		
 		});
@@ -20,10 +23,10 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 		this.installTypeahead();
 		return this;
 	},
+	
 	events: {
 		'click button#sort-texts-index-crits':'sortIndexCrits',
 		'click button#sort-texts-index-title':'sortIndexTitle',
-		'click button#sort-texts-index-author':'sortIndexAuthor',
 		'click button#sort-texts-index-id':'sortIndexId',
 		'keyup input#filter-texts-input': 'filterTexts',
 		'click input#filter-texts-input': 'refreshTexts'		
@@ -38,7 +41,6 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 	},
 
 	filterTexts: function(event){
-		
 		var results = this.collection.where({username: event.target.value});
 		if(results.length === 0){
 			results = this.collection.where({title: event.target.value});
@@ -57,7 +59,6 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 		this.installTypeahead();
 		$('#filter-texts-input').attr('placeholder','Search all texts');
 		return this;
-		
 	},
 
 	sortIndexCrits: function(){
@@ -141,30 +142,7 @@ Wordshop.Views.TextsIndex = Backbone.View.extend({
 		
 		}
 	},
-	// unnecessary with filtering?:
-	// sortIndexAuthor: function(){
-	// 	if($('button#sort-texts-index-author').data('sort-method') === 'desc'){
-	// 		this.collection.comparator = function(text){
-	// 			//thanks to andrew-de-andrade on stackoverflow:
-	// 			var str = text.user().get('username');
-	// 			  str = str.toLowerCase();
-	// 			  str = str.split("");
-	// 			  str = _.map(str, function(letter) {
-	// 			    return String.fromCharCode(-(letter.charCodeAt(0)));
-	// 			  });
-	// 			  return str;
-	// 		};
-	// 		this.collection.sort();
-	// 		$('button#sort-texts-index-author').data('sort-method', 'asc');
-	// 	} else {
-	// 		this.collection.comparator = function(text){
-	// 			return text.user().get('username').toLowerCase();
-	// 		};
-	// 		this.collection.sort();
-	// 		$('button#sort-texts-index-author').data('sort-method', 'desc');
-	// 	}
-	// },
-	//
+
 	sortIndexId: function(){
 		if(this.filteredTexts.length > 0){
 			if($('button#sort-texts-index-id').data('sort-method') === 'desc'){

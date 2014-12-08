@@ -8,7 +8,7 @@ Wordshop.Views.UserTextsIndex = Backbone.View.extend({
 		this.listenTo(this.collection, 'add remove sync sort', this.render);
 		
 		this.collection.comparator = function(text){
-			return -text.id;
+			return text.id;
 		};
 		this.collection.sort();
 
