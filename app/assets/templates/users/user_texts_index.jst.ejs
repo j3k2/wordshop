@@ -6,6 +6,7 @@ Sort by: <button id="sort-users-texts-crits" data-sort-method="desc" 								cla
 	<div class="list-group index">
 		
 		
+		
 	<% texts.forEach(function(text){ %>
 		<a href="#texts/<%= text.id %>" class="list-group-item index"><strong><%= text.escape('title') %></strong>
 			<small class="index-item-text"><em class="index-item-text"><%= moment(text.escape('created_at')).fromNowOrNow() %></em></small>
