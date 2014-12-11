@@ -1,28 +1,14 @@
-== README
+== WORDSHOP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Inspired by genius.com, Wordshop is a tool for writers to give and receive feedback on their work. 
+The use of inline annotations allows users to leave critiques on specific portions of text. 
+The live site can be accessed at http://wordshop.xyz
 
-Things you may want to cover:
+Wordshop is a single-page Backbone.js application consuming a RESTful Rails JSON API. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Tools/Libraries used:
+* typeahead.js
+* bootbox.js
+* moment.js
+* serializeJSON
+* filepicker.io
